@@ -175,6 +175,28 @@
   .card footer{ display:flex; justify-content:space-between; align-items:center; padding-top:.5rem;
     border-top:1px solid var(--line); }
 
+  /* route blocks (temario en vivo) */
+  .route-block{ margin-bottom:2.2rem; }
+  .route-block:last-child{ margin-bottom:0; }
+  .route-block-head{ display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap; margin-bottom:.6rem; }
+  .route-code{ font-family:var(--f-mono); color:var(--brass); font-weight:700; font-size:.92rem; }
+  .route-block h3{ font-family:var(--f-serif); font-size:1.1rem; font-weight:600; }
+  .route-count{ margin-left:auto; font-family:var(--f-mono); font-size:10.5px; color:var(--text-faint); }
+  .route-desc{ color:var(--text-soft); font-size:.88rem; margin:0 0 .8rem; max-width:62ch; }
+  .route-list{ display:grid; gap:.5rem; }
+  .route-item{
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:.75rem 1rem;
+  }
+  .route-item h4{ font-family:var(--f-body); font-weight:600; font-size:.92rem; color:var(--text); margin:0; }
+  .route-item p{ color:var(--text-faint); font-size:.8rem; margin:.25rem 0 0; }
+  .route-item .lvl{ font-family:var(--f-mono); font-size:10px; color:var(--text-faint); white-space:nowrap; }
+  .route-empty{
+    font-size:.86rem; color:var(--text-faint); border:1px dashed var(--line-strong);
+    border-radius:var(--r); padding:.8rem 1rem; margin:0;
+  }
+  .route-loading{ color:var(--text-faint); font-size:.9rem; font-family:var(--f-mono); }
+
   /* footer */
   footer.site{ border-top:2px solid var(--line-strong); padding-block:2.4rem 1.4rem; }
   .foot-grid{
@@ -242,122 +264,19 @@
     </div>
   </section>
 
-  <!-- 01. POR DÓNDE ENTRAR -->
-  <section class="exhibit" id="por-donde-entrar">
-    <div class="exhibit-head">
-      <span class="exhibit-num">01.</span>
-      <h2>Por dónde entrar</h2>
-      <span class="tab">Educación</span>
-    </div>
-    <p class="exhibit-note">
-      Cada recurso tiene su propio lugar. Si arrancás de cero, empezá por las rutas.
-    </p>
-    <div class="cards">
-      <article class="card">
-        <span class="file">FORMACIÓN · RUTAS</span>
-        <h3>🧭 Rutas de aprendizaje</h3>
-        <p>Nueve rutas ordenadas, de Fundamentos a temas avanzados. El camino recomendado para no perderte.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/rutas.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver rutas →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">FORMACIÓN · CATÁLOGO</span>
-        <h3>📚 Catálogo de clases</h3>
-        <p>Todas las clases publicadas, con video y material descargable. Buscá por tema, nivel o categoría.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/cursos.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver catálogo →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">FORMACIÓN · RETOS</span>
-        <h3>🧩 Retos y CTF</h3>
-        <p>Desafíos cortos para poner en práctica lo de las rutas. Uno nuevo por semana, sumás puntos.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/retos.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver retos →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">FORMACIÓN · LABORATORIOS</span>
-        <h3>🧪 Laboratorios</h3>
-        <p>Guías prácticas de principio a fin: montás el entorno, seguís los pasos y terminás con algo funcionando.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/laboratorios.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver laboratorios →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">FORMACIÓN · ASISTENTE</span>
-        <h3>🤝 Asistente de IA</h3>
-        <p>Tu tutor 24/7. Conoce el catálogo real y te arma el orden de las primeras clases según tu nivel.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/ia-asistente.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Abrir asistente →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">FORMACIÓN · AYUDA</span>
-        <h3>❓ Cómo funciona</h3>
-        <p>Qué se puede mirar sin cuenta, cómo se aprueba el registro y cómo se estudia acá.</p>
-        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/ayuda.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver la guía →</a></footer>
-      </article>
-    </div>
-  </section>
-
-  <!-- 02. EL TEMARIO -->
+  <!-- 01. RUTAS DE APRENDIZAJE (temario en vivo, mismas clases que academiaindra.com) -->
   <section class="exhibit" id="temario">
     <div class="exhibit-head">
-      <span class="exhibit-num">02.</span>
+      <span class="exhibit-num">01.</span>
       <h2>Rutas de aprendizaje</h2>
-      <span class="tab">Temario</span>
+      <span class="tab" id="temario-contador">Cargando…</span>
     </div>
     <p class="exhibit-note">
-      Nueve rutas, de lo más básico a lo avanzado. No hace falta seguirlas en orden — pero si arrancás de
-      cero, empezá por Fundamentos.
+      Nueve rutas, de lo más básico a lo avanzado, con las clases ya publicadas en Academia Indra. No hace
+      falta seguirlas en orden — pero si arrancás de cero, empezá por Fundamentos.
     </p>
-    <div class="cards">
-      <article class="card">
-        <span class="file">RUTA · T0</span>
-        <h3>Fundamentos</h3>
-        <p>Internet, redes, sistemas, línea de comandos, máquinas virtuales y seguridad de tu propia cuenta.</p>
-        <footer><span class="badge badge--ok">Básico</span><a href="https://academiaindra.com/rutas.html?ruta=T0" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T1</span>
-        <h3>Termux &amp; Linux de bolsillo</h3>
-        <p>Convertir el celular en un laboratorio: paquetes, scripts y práctica sin depender de una PC.</p>
-        <footer><span class="badge badge--ok">Básico</span><a href="https://academiaindra.com/rutas.html?ruta=T1" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T2</span>
-        <h3>OSINT e investigación</h3>
-        <p>Huella digital, búsqueda y verificación de información, y cómo proteger tu propia identidad.</p>
-        <footer><span class="badge badge--ok">Básico → Int.</span><a href="https://academiaindra.com/rutas.html?ruta=T2" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T3</span>
-        <h3>Hacking web</h3>
-        <p>OWASP Top 10 en la práctica, laboratorios legales (DVWA, PortSwigger) y cómo se reporta una falla.</p>
-        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T3" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T4</span>
-        <h3>Redes y Wi-Fi</h3>
-        <p>Captura y lectura de tráfico, seguridad de redes domésticas y dispositivos conectados.</p>
-        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T4" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T5</span>
-        <h3>Privacidad y anti-abuso</h3>
-        <p>Cifrado, mensajería, defensa contra estafas y phishing, y seguridad de comunidades de WhatsApp.</p>
-        <footer><span class="badge badge--ok">Básico → Int.</span><a href="https://academiaindra.com/rutas.html?ruta=T5" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T6</span>
-        <h3>Defensa / Blue team</h3>
-        <p>Endurecer sistemas, detectar, responder a incidentes e higiene de contraseñas y accesos.</p>
-        <footer><span class="badge badge--live">Int. → Avanzado</span><a href="https://academiaindra.com/rutas.html?ruta=T6" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T7</span>
-        <h3>Construcción de herramientas</h3>
-        <p>Bots de WhatsApp con Baileys, automatización y cómo publicar tu propio proyecto.</p>
-        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T7" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
-      <article class="card">
-        <span class="file">RUTA · T8</span>
-        <h3>Carrera y ética</h3>
-        <p>Marco legal, divulgación responsable, cómo seguir y qué certificaciones externas apuntar.</p>
-        <footer><span class="badge badge--ok">Todos</span><a href="https://academiaindra.com/rutas.html?ruta=T8" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
-      </article>
+    <div id="temario-mount">
+      <p class="route-loading">Cargando las clases de cada ruta…</p>
     </div>
   </section>
 
@@ -391,3 +310,102 @@
   </footer>
 
 </div>
+
+<script type="module">
+  /* Trae las clases publicadas de Academia Indra (misma base que academiaindra.com)
+     y arma el temario acá mismo, con el diseño de beta — sin salir del sitio. */
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+  import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+  const app = initializeApp({
+    apiKey: 'AIzaSyAY38VZi8Yi0KDLMwV1Xi92hE9tt0rrMV0',
+    authDomain: 'academia-indrhack.firebaseapp.com',
+    projectId: 'academia-indrhack',
+    messagingSenderId: '253533392968',
+    appId: '1:253533392968:web:ee6a4057d19e492bdd887d',
+  });
+  const db = getFirestore(app);
+
+  const RUTAS = [
+    { code: 'T0', titulo: 'Fundamentos',                 desc: 'Internet, redes, sistemas, línea de comandos, máquinas virtuales y seguridad de tu propia cuenta.', lvl: 'ok',     lvlTxt: 'Básico',        match: ['t0','fundamento','introduc','basico','básico','general'] },
+    { code: 'T1', titulo: 'Termux & Linux de bolsillo',  desc: 'Convertir el celular en un laboratorio: paquetes, scripts y práctica sin depender de una PC.',       lvl: 'ok',     lvlTxt: 'Básico',        match: ['t1','termux','linux'] },
+    { code: 'T2', titulo: 'OSINT e investigación',       desc: 'Huella digital, búsqueda y verificación de información, y cómo proteger tu propia identidad.',        lvl: 'ok',     lvlTxt: 'Básico → Int.', match: ['t2','osint','investig','inteligencia'] },
+    { code: 'T3', titulo: 'Hacking web',                  desc: 'OWASP Top 10 en la práctica, laboratorios legales (DVWA, PortSwigger) y cómo se reporta una falla.',  lvl: 'review', lvlTxt: 'Intermedio',    match: ['t3','web','owasp','http','xss','sql'] },
+    { code: 'T4', titulo: 'Redes y Wi-Fi',                desc: 'Captura y lectura de tráfico, seguridad de redes domésticas y dispositivos conectados.',             lvl: 'review', lvlTxt: 'Intermedio',    match: ['t4','red','wifi','wi-fi','network','tráfico','trafico'] },
+    { code: 'T5', titulo: 'Privacidad y anti-abuso',      desc: 'Cifrado, mensajería, defensa contra estafas y phishing, y seguridad de comunidades de WhatsApp.',    lvl: 'ok',     lvlTxt: 'Básico → Int.', match: ['t5','privacidad','anti-abuso','phishing','estafa','whatsapp','cifrado'] },
+    { code: 'T6', titulo: 'Defensa / Blue team',          desc: 'Endurecer sistemas, detectar, responder a incidentes e higiene de contraseñas y accesos.',           lvl: 'live',   lvlTxt: 'Int. → Avanzado', match: ['t6','blue','defensa','hardening','forense','soc'] },
+    { code: 'T7', titulo: 'Construcción de herramientas', desc: 'Bots de WhatsApp con Baileys, automatización y cómo publicar tu propio proyecto.',                   lvl: 'review', lvlTxt: 'Intermedio',    match: ['t7','bot','desarrollo','app','automatiz','baileys','codigo','código','script'] },
+    { code: 'T8', titulo: 'Carrera y ética',              desc: 'Marco legal, divulgación responsable, cómo seguir y qué certificaciones externas apuntar.',          lvl: 'ok',     lvlTxt: 'Todos',         match: ['t8','ética','etica','legal','carrera','certif'] },
+  ];
+
+  const norm = (s) => (s || '').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const el = (tag, cls, txt) => { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+
+  function rutaDe(curso) {
+    const explicit = norm(curso.ruta);
+    if (explicit) {
+      const r = RUTAS.find((x) => norm(x.code) === explicit || explicit.includes(norm(x.code)));
+      if (r) return r.code;
+    }
+    const cat = norm(curso.categoria || 'general');
+    for (const r of RUTAS) if (r.match.some((m) => cat.includes(norm(m)))) return r.code;
+    return null;
+  }
+
+  (async function () {
+    const mount = document.getElementById('temario-mount');
+    const contador = document.getElementById('temario-contador');
+    let cursos = [];
+    try {
+      const snap = await getDocs(collection(db, 'courses'));
+      cursos = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((c) => c.publicado !== false);
+    } catch (e) {
+      mount.innerHTML = '';
+      const err = el('p', 'route-empty', 'No se pudo cargar el temario ahora mismo. Probá de nuevo en un rato.');
+      mount.append(err);
+      contador.textContent = 'Sin datos';
+      return;
+    }
+
+    const porRuta = {};
+    cursos.forEach((c) => {
+      const code = rutaDe(c);
+      if (code) (porRuta[code] = porRuta[code] || []).push(c);
+    });
+    Object.values(porRuta).forEach((arr) => arr.sort((a, b) => (a.orden || 1) - (b.orden || 1)));
+
+    contador.textContent = cursos.length + (cursos.length === 1 ? ' clase' : ' clases');
+
+    mount.replaceChildren();
+    RUTAS.forEach((r) => {
+      const clases = porRuta[r.code] || [];
+      const block = el('div', 'route-block');
+
+      const head = el('div', 'route-block-head');
+      head.append(el('span', 'route-code', r.code));
+      head.append(el('h3', null, r.titulo));
+      head.append(el('span', 'badge badge--' + r.lvl, r.lvlTxt));
+      head.append(el('span', 'route-count', clases.length ? (clases.length + (clases.length === 1 ? ' clase' : ' clases')) : 'en armado'));
+      block.append(head);
+      block.append(el('p', 'route-desc', r.desc));
+
+      if (clases.length) {
+        const list = el('div', 'route-list');
+        clases.forEach((c) => {
+          const item = el('div', 'route-item');
+          const body = el('div');
+          body.append(el('h4', null, c.titulo || 'Clase'));
+          if (c.descripcion) body.append(el('p', null, (c.descripcion || '').slice(0, 140)));
+          item.append(body);
+          item.append(el('span', 'lvl', c.nivel || 'Básico'));
+          list.append(item);
+        });
+        block.append(list);
+      } else {
+        block.append(el('p', 'route-empty', 'Todavía no hay clases cargadas en esta ruta. Se van sumando.'));
+      }
+
+      mount.append(block);
+    });
+  })();
+</script>
