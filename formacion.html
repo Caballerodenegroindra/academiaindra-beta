@@ -87,13 +87,19 @@
     font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
     color:var(--text-faint); font-style:italic;
   }
-  nav{ display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+  nav{ display:flex; align-items:center; gap:.4rem; flex-wrap:wrap; }
   nav a{
-    color:var(--text-soft); text-decoration:none; font-size:.88rem; font-weight:500;
-    letter-spacing:.02em;
+    color:var(--text-soft); text-decoration:none; font-size:.86rem; font-weight:600;
+    letter-spacing:.01em;
   }
-  nav a:hover{ color:var(--text); }
-  nav a.current{ color:var(--brass-hi); }
+  nav a.nav-tab{
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.5rem .9rem; border-radius:999px; border:1px solid transparent;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  nav a.nav-tab:hover{ color:var(--text); background:var(--panel-2); border-color:var(--line); }
+  nav a.current{ color:var(--brass-ink); background:var(--brass); border-color:var(--brass); font-weight:700; }
+  nav a.current:hover{ color:var(--brass-ink); background:var(--brass-hi); border-color:var(--brass-hi); }
 
   /* ---------- buttons ---------- */
   .btn{
@@ -244,12 +250,12 @@
       </div>
     </div>
     <nav>
-      <a href="formacion.html" class="current">Formación</a>
-      <a href="aplicaciones.html">Aplicaciones</a>
-      <a href="bots-y-herramientas.html">Bots</a>
-      <a href="servicios-digitales.html">Servicios</a>
-      <a href="comunidad.html">Comunidad</a>
-      <a href="index.html#labs">Indra Labs</a>
+      <a href="index.html" class="nav-tab">🏠 Inicio</a>
+      <a href="formacion.html" class="nav-tab current">Formación</a>
+      <a href="aplicaciones.html" class="nav-tab">Aplicaciones</a>
+      <a href="bots-y-herramientas.html" class="nav-tab">Bots</a>
+      <a href="servicios-digitales.html" class="nav-tab">Servicios</a>
+      <a href="comunidad.html" class="nav-tab">Comunidad</a>
       <a href="index.html#sumate" class="btn btn--primary btn--small">Sumate</a>
     </nav>
   </header>
@@ -262,9 +268,6 @@
       programación y recursos educativos. De cero a avanzado, a tu ritmo y <strong>gratis</strong>. La
       puerta de entrada original de Academia Indra, hoy una de las áreas del ecosistema.
     </p>
-    <div class="row" style="margin-top:1.4rem;">
-      <a class="btn btn--outline btn--small" href="index.html">← Volver al inicio</a>
-    </div>
   </section>
 
   <!-- 01. RUTAS DE APRENDIZAJE (temario en vivo, mismas clases que academiaindra.com) -->
@@ -302,7 +305,6 @@
         <div class="foot-links">
           <a href="servicios-digitales.html">Servicios Digitales</a>
           <a href="comunidad.html">Comunidad</a>
-          <a href="index.html#labs">Indra Labs</a>
         </div>
       </div>
     </div>

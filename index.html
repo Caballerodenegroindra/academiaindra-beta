@@ -87,12 +87,19 @@
     font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
     color:var(--text-faint); font-style:italic;
   }
-  nav{ display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+  nav{ display:flex; align-items:center; gap:.4rem; flex-wrap:wrap; }
   nav a{
-    color:var(--text-soft); text-decoration:none; font-size:.88rem; font-weight:500;
-    letter-spacing:.02em;
+    color:var(--text-soft); text-decoration:none; font-size:.86rem; font-weight:600;
+    letter-spacing:.01em;
   }
-  nav a:hover{ color:var(--text); }
+  nav a.nav-tab{
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.5rem .9rem; border-radius:999px; border:1px solid transparent;
+    transition:background .15s, border-color .15s, color .15s;
+  }
+  nav a.nav-tab:hover{ color:var(--text); background:var(--panel-2); border-color:var(--line); }
+  nav a.current{ color:var(--brass-ink); background:var(--brass); border-color:var(--brass); font-weight:700; }
+  nav a.current:hover{ color:var(--brass-ink); background:var(--brass-hi); border-color:var(--brass-hi); }
 
   /* ---------- buttons ---------- */
   .btn{
@@ -302,8 +309,13 @@
       </div>
     </div>
     <nav>
-      <a href="comunidad.html">Comunidad en WhatsApp</a>
-      <a href="https://wa.me/5493834954164" target="_blank" rel="noopener">Contacto con Indra</a>
+      <a href="index.html" class="nav-tab current">🏠 Inicio</a>
+      <a href="formacion.html" class="nav-tab">Formación</a>
+      <a href="aplicaciones.html" class="nav-tab">Aplicaciones</a>
+      <a href="bots-y-herramientas.html" class="nav-tab">Bots</a>
+      <a href="servicios-digitales.html" class="nav-tab">Servicios</a>
+      <a href="comunidad.html" class="nav-tab">Comunidad</a>
+      <a href="https://wa.me/5493834954164" target="_blank" rel="noopener" class="btn btn--outline btn--small">Contacto con Indra</a>
     </nav>
   </header>
 
