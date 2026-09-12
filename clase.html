@@ -1,0 +1,371 @@
+<title>Clase — Academia Indra</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  :root{
+    color-scheme: dark;
+    --ink:        #05080d;
+    --panel:      #0e1522;
+    --panel-2:    #16202f;
+    --inset:      #0a0f18;
+    --line:       rgba(199,210,224,.16);
+    --line-strong:rgba(199,210,224,.32);
+
+    --text:       #eaeef4;
+    --text-soft:  #a7b2c4;
+    --text-faint: #66738a;
+
+    --brass:      #b08d4f;
+    --brass-hi:   #cdab6c;
+    --brass-ink:  #14100a;
+    --brass-subtle: rgba(176,141,79,.14);
+
+    --steel:      #7e97b8;
+    --steel-subtle: rgba(126,151,184,.14);
+
+    --ok:         #5c9c6d;
+    --ok-subtle:  rgba(92,156,109,.16);
+    --danger:     #b24b44;
+    --danger-subtle: rgba(178,75,68,.16);
+
+    --r-sm: 3px;
+    --r: 5px;
+    --max: 860px;
+    --gutter: clamp(1.1rem, 4vw, 2.5rem);
+
+    --f-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+    --f-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --f-body:    'Public Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --f-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background:var(--ink); color:var(--text);
+    font-family:var(--f-body); font-size:16px; line-height:1.6;
+    padding-inline: var(--gutter);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(199,210,224,.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  h1,h2,h3,h4{ margin:0; text-wrap:balance; font-weight:600; color:var(--text); }
+  p{ margin:0; }
+  a{ color:var(--steel); }
+  ::selection{ background:var(--brass-subtle); color:var(--text); }
+
+  .wrap{ max-width:var(--max); margin-inline:auto; }
+
+  .strip{
+    display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; justify-content:space-between;
+    padding-block:.5rem; border-bottom:1px solid var(--line);
+    font-family:var(--f-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .strip b{ color:var(--brass); font-weight:600; }
+
+  header{
+    display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+    padding-block:1.3rem; border-bottom:2px solid var(--line-strong);
+    flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:.9rem; }
+  .brand img{
+    width:50px; height:50px; border-radius:50%; display:block;
+    box-shadow:0 0 0 1px var(--line-strong), 0 0 0 4px var(--ink), 0 0 0 5px var(--line);
+  }
+  .brand .word{ display:flex; flex-direction:column; gap:.15rem; }
+  .brand .word b{
+    font-family:var(--f-display); font-size:1.05rem; letter-spacing:.09em;
+    font-weight:600; color:var(--text); line-height:1;
+  }
+  .brand .word span{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
+    color:var(--text-faint); font-style:italic;
+  }
+  nav{ display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+  nav a{ color:var(--text-soft); text-decoration:none; font-size:.88rem; font-weight:500; letter-spacing:.02em; }
+  nav a:hover{ color:var(--text); }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    font-family:var(--f-body); font-weight:600; font-size:.86rem; letter-spacing:.01em;
+    padding:.62rem 1.15rem; border-radius:var(--r-sm); cursor:pointer;
+    border:1px solid var(--line-strong); background:transparent; color:var(--text);
+    transition:transform .12s ease, border-color .15s, background .15s, color .15s;
+    text-decoration:none;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn--primary{ background:var(--brass); border-color:var(--brass); color:var(--brass-ink); }
+  .btn--primary:hover{ background:var(--brass-hi); border-color:var(--brass-hi); }
+  .btn--outline{ border-color:var(--steel); color:var(--steel); }
+  .btn--outline:hover{ background:var(--steel-subtle); }
+  .btn--small{ padding:.42rem .8rem; font-size:.78rem; }
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:.4rem; font-family:var(--f-mono); font-size:.78rem;
+    letter-spacing:.04em; text-transform:uppercase; color:var(--text-faint); text-decoration:none;
+    margin:1.6rem 0 1.2rem;
+  }
+  .back-link:hover{ color:var(--text); }
+
+  .badge{
+    display:inline-flex; align-items:center; gap:.35rem; font-family:var(--f-mono); font-size:.72rem;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem;
+    border-radius:var(--r-sm); border:1px solid var(--line-strong); color:var(--text-soft);
+  }
+  .badge--ok{ background:var(--ok-subtle); color:var(--ok); border-color:transparent; }
+  .badge--live{ background:var(--brass-subtle); color:var(--brass-hi); border-color:transparent; }
+  .badge--review{ background:var(--steel-subtle); color:var(--steel); border-color:transparent; }
+
+  .clase-cover{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.6rem; margin-bottom:1.4rem;
+  }
+  .clase-cover h1{
+    font-family:var(--f-serif); font-size:clamp(1.3rem,4vw,1.9rem); font-weight:700;
+    margin:.6rem 0 .5rem;
+  }
+  .clase-cover .cat{
+    color:var(--text-faint); font-size:.84rem; font-family:var(--f-mono);
+  }
+
+  .video-wrap{
+    position:relative; padding-bottom:56.25%; height:0; border-radius:var(--r);
+    overflow:hidden; margin-bottom:1.4rem; border:1px solid var(--line); background:#000;
+  }
+  .video-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+  .content-block{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.4rem; color:var(--text-soft); font-size:.92rem; line-height:1.8; margin-bottom:1.4rem;
+  }
+  .content-block .desc-titulo{
+    display:flex; align-items:center; gap:.6rem; color:var(--text); font-family:var(--f-serif);
+    font-weight:700; font-size:1.02rem; margin:1.1rem 0 .5rem;
+  }
+  .content-block .desc-titulo:first-child{ margin-top:0; }
+  .content-block .desc-num{
+    background:var(--brass); color:var(--brass-ink); font-size:.78rem; font-weight:700;
+    width:1.6rem; height:1.6rem; border-radius:50%; display:inline-flex; align-items:center;
+    justify-content:center; flex-shrink:0;
+  }
+  .content-block .desc-lista{ margin:.4rem 0 .9rem 1.2rem; padding:0; }
+  .content-block .desc-lista li{ margin-bottom:.35rem; }
+  .content-block .desc-parrafo{ margin:0 0 .6rem; }
+  .content-block strong{ color:var(--text); }
+  .content-block pre{
+    background:var(--inset); border:1px solid var(--line); border-radius:var(--r-sm);
+    padding:.85rem 1rem; overflow-x:auto; margin:.6rem 0 .9rem;
+  }
+  .content-block pre code{
+    font-family:var(--f-mono); font-size:.82rem; color:var(--text); white-space:pre-wrap; word-break:break-word;
+  }
+
+  .section-title{
+    font-family:var(--f-mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--text-faint); margin:0 0 .8rem;
+  }
+
+  .cmd-card{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:var(--r);
+    padding:1rem; margin-bottom:.75rem;
+  }
+  .cmd-card:last-child{ margin-bottom:0; }
+  .cmd-label{ font-size:.72rem; color:var(--text-faint); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.3rem; font-family:var(--f-mono); }
+  .cmd-description{ font-size:.85rem; color:var(--text-soft); line-height:1.55; margin-bottom:.6rem; }
+  .cmd-row{
+    display:flex; align-items:center; gap:.5rem; background:var(--inset); border:1px solid var(--line);
+    border-radius:var(--r-sm); padding:.6rem .75rem; overflow-x:auto;
+  }
+  .cmd-prompt{ color:var(--ok); font-family:var(--f-mono); font-size:.82rem; font-weight:700; flex-shrink:0; }
+  .cmd-text{ font-family:var(--f-mono); font-size:.83rem; color:var(--text); flex:1; white-space:nowrap; }
+  .cmd-copy-btn{
+    flex-shrink:0; background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--r-sm);
+    color:var(--ok); font-size:.72rem; font-weight:600; padding:.3rem .65rem; cursor:pointer; font-family:var(--f-body);
+  }
+  .cmd-copy-btn.copied{ background:var(--ok-subtle); border-color:var(--ok); }
+
+  .material-row{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.2rem; }
+
+  .clase-empty{
+    color:var(--text-faint); font-size:.92rem; text-align:center; padding:3rem 1rem;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="strip">
+    <span>Academia Indra <b>·</b> Ecosistema tecnológico</span>
+    <span>Versión: <b>Beta</b></span>
+    <span>Estado: <b>En construcción</b></span>
+  </div>
+
+  <header>
+    <div class="brand">
+      <img src="assets/logo-original.png" alt="Sello de Academia Indrhack">
+      <div class="word">
+        <b>ACADEMIA INDRHACK</b>
+        <span>El conocimiento es base</span>
+      </div>
+    </div>
+    <nav>
+      <a href="formacion.html">Formación</a>
+      <a href="aplicaciones.html">Aplicaciones</a>
+      <a href="bots-y-herramientas.html">Bots</a>
+      <a href="servicios-digitales.html">Servicios</a>
+      <a href="comunidad.html">Comunidad</a>
+      <a href="index.html#labs">Indra Labs</a>
+      <a href="index.html#sumate" class="btn btn--primary btn--small">Sumate</a>
+    </nav>
+  </header>
+
+  <a href="formacion.html" class="back-link">← Volver a Formación</a>
+
+  <div id="clase-loading" class="clase-empty">Cargando clase…</div>
+  <div id="clase-contenido" style="display:none"></div>
+
+</div>
+
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+  import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+  const app = initializeApp({
+    apiKey: 'AIzaSyAY38VZi8Yi0KDLMwV1Xi92hE9tt0rrMV0',
+    authDomain: 'academia-indrhack.firebaseapp.com',
+    projectId: 'academia-indrhack',
+    messagingSenderId: '253533392968',
+    appId: '1:253533392968:web:ee6a4057d19e492bdd887d',
+  });
+  const db = getFirestore(app);
+
+  const nivelBadge = { 'Básico': 'badge--ok', 'Intermedio': 'badge--review', 'Avanzado': 'badge--live' };
+
+  const loading = document.getElementById('clase-loading');
+  const contenido = document.getElementById('clase-contenido');
+  const cursoId = new URLSearchParams(location.search).get('id');
+
+  function escapeHtml(str) {
+    return (str || '').toString()
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function extractYouTubeId(url) {
+    if (!url) return null;
+    const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  /* Mini-markdown seguro: escapa todo primero, después interpreta un formato simple. */
+  function renderDescripcion(str) {
+    if (!str) return '';
+    const safe = escapeHtml(str);
+    const lineas = safe.split('\n');
+    let html = '', enLista = false, enCodigo = false;
+    const cerrarLista = () => { if (enLista) { html += '</ul>'; enLista = false; } };
+    for (let linea of lineas) {
+      if (/^```/.test(linea.trim())) {
+        cerrarLista();
+        if (!enCodigo) { html += '<pre><code>'; enCodigo = true; } else { html += '</code></pre>'; enCodigo = false; }
+        continue;
+      }
+      if (enCodigo) { html += linea + '\n'; continue; }
+      const conNegrita = linea.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      const matchTitulo = conNegrita.match(/^\s*(\d+)[\.\)]\s+(.*)$/);
+      const matchItem = conNegrita.match(/^\s*[-*]\s+(.*)$/);
+      if (matchTitulo) {
+        cerrarLista();
+        html += `<h4 class="desc-titulo"><span class="desc-num">${matchTitulo[1]}</span>${matchTitulo[2]}</h4>`;
+      } else if (matchItem) {
+        if (!enLista) { html += '<ul class="desc-lista">'; enLista = true; }
+        html += `<li>${matchItem[1]}</li>`;
+      } else if (linea.trim() === '') {
+        cerrarLista(); html += '<br>';
+      } else {
+        cerrarLista(); html += `<p class="desc-parrafo">${conNegrita}</p>`;
+      }
+    }
+    cerrarLista();
+    if (enCodigo) html += '</code></pre>';
+    return html;
+  }
+
+  function renderTermux(comandos) {
+    if (!comandos || !comandos.length) return '';
+    const cards = comandos.map((c, i) => `
+      <div class="cmd-card">
+        ${c.etiqueta ? `<div class="cmd-label">${escapeHtml(c.etiqueta)}</div>` : ''}
+        ${c.descripcion ? `<div class="cmd-description">${escapeHtml(c.descripcion)}</div>` : ''}
+        <div class="cmd-row">
+          <span class="cmd-prompt">$</span>
+          <span class="cmd-text" id="cmd-text-${i}">${escapeHtml(c.comando)}</span>
+          <button class="cmd-copy-btn" data-copy="cmd-text-${i}">Copiar</button>
+        </div>
+      </div>
+    `).join('');
+    return `
+      <div style="margin-bottom:1.4rem">
+        <p class="section-title">💻 Comandos Termux</p>
+        ${cards}
+      </div>
+    `;
+  }
+
+  (async function () {
+    if (!cursoId) {
+      loading.innerHTML = '<p>No se especificó ninguna clase. <a href="formacion.html">Volver a Formación</a></p>';
+      return;
+    }
+    let curso;
+    try {
+      const snap = await getDoc(doc(db, 'courses', cursoId));
+      if (!snap.exists()) { loading.textContent = 'Clase no encontrada.'; return; }
+      curso = { id: snap.id, ...snap.data() };
+    } catch (e) {
+      loading.textContent = 'No se pudo cargar la clase ahora mismo.';
+      return;
+    }
+
+    loading.style.display = 'none';
+    contenido.style.display = 'block';
+    document.title = (curso.titulo || 'Clase') + ' — Academia Indra';
+
+    const ytId = extractYouTubeId(curso.enlace || '');
+    const badgeClass = nivelBadge[curso.nivel] || 'badge--ok';
+
+    contenido.innerHTML = `
+      <div class="clase-cover">
+        <span class="badge ${badgeClass}">${curso.nivel || 'Básico'}</span>
+        <h1>${escapeHtml(curso.titulo || 'Clase')}</h1>
+        <p class="cat">${escapeHtml(curso.categoria || 'General')}</p>
+      </div>
+
+      ${ytId ? `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1&playsinline=1&fs=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>` : ''}
+
+      ${curso.descripcion ? `
+        <div>
+          <p class="section-title">📋 Contenido de la clase</p>
+          <div class="content-block">${renderDescripcion(curso.descripcion)}</div>
+        </div>` : ''}
+
+      ${renderTermux(curso.termux_comandos)}
+
+      <div class="material-row">
+        ${curso.descarga ? `<a href="${curso.descarga}" target="_blank" rel="noopener" class="btn btn--outline btn--small">⬇ Descargar video de la clase</a>` : ''}
+        ${curso.enlace && !ytId ? `<a href="${curso.enlace}" target="_blank" rel="noopener" class="btn btn--outline btn--small">🔗 Acceder al recurso externo</a>` : ''}
+      </div>
+    `;
+
+    contenido.querySelectorAll('.cmd-copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const txt = document.getElementById(btn.dataset.copy)?.textContent || '';
+        if (!txt) return;
+        navigator.clipboard?.writeText(txt).then(() => {
+          btn.textContent = '¡Copiado!'; btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+        }).catch(() => {});
+      });
+    });
+  })();
+</script>

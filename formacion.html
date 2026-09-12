@@ -187,7 +187,9 @@
   .route-item{
     display:flex; justify-content:space-between; align-items:center; gap:1rem;
     background:var(--panel); border:1px solid var(--line); border-radius:var(--r); padding:.75rem 1rem;
+    text-decoration:none; transition:border-color .15s, transform .15s ease;
   }
+  .route-item:hover{ border-color:var(--line-strong); transform:translateY(-1px); }
   .route-item h4{ font-family:var(--f-body); font-weight:600; font-size:.92rem; color:var(--text); margin:0; }
   .route-item p{ color:var(--text-faint); font-size:.8rem; margin:.25rem 0 0; }
   .route-item .lvl{ font-family:var(--f-mono); font-size:10px; color:var(--text-faint); white-space:nowrap; }
@@ -392,7 +394,8 @@
       if (clases.length) {
         const list = el('div', 'route-list');
         clases.forEach((c) => {
-          const item = el('div', 'route-item');
+          const item = el('a', 'route-item');
+          item.href = 'clase.html?id=' + encodeURIComponent(c.id);
           const body = el('div');
           body.append(el('h4', null, c.titulo || 'Clase'));
           if (c.descripcion) body.append(el('p', null, (c.descripcion || '').slice(0, 140)));
