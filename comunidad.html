@@ -128,6 +128,46 @@
     font-family:var(--f-serif);
   }
 
+  /* ---------- exhibits ---------- */
+  .exhibit{ padding-block: clamp(2.2rem,5vw,3rem); border-top:1px solid var(--line); }
+  .exhibit-head{
+    display:flex; align-items:baseline; gap:.9rem; margin-bottom:1.6rem; flex-wrap:wrap;
+  }
+  .exhibit-num{
+    font-family:var(--f-display); font-size:1.5rem; color:var(--brass); font-weight:700;
+  }
+  .exhibit-head h2{
+    font-family:var(--f-serif); font-size:clamp(1.25rem,2.6vw,1.55rem); font-weight:600;
+  }
+  .exhibit-head .tab{
+    margin-left:auto; font-family:var(--f-mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--text-faint); border:1px solid var(--line);
+    border-radius:999px; padding:.25rem .7rem;
+  }
+  .exhibit-note{ color:var(--text-soft); max-width:62ch; margin-bottom:1.4rem; font-size:.94rem; }
+
+  /* buttons/badges rows */
+  .row{ display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+  .badge{
+    display:inline-flex; align-items:center; gap:.35rem; font-family:var(--f-mono); font-size:.72rem;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem;
+    border-radius:var(--r-sm); border:1px solid var(--line-strong); color:var(--text-soft);
+  }
+  .badge--live{ background:var(--brass-subtle); color:var(--brass-hi); border-color:transparent; }
+  .badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+  /* cards */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.3rem; display:flex; flex-direction:column; gap:.8rem;
+    transition:border-color .16s, transform .16s ease;
+  }
+  .card:hover{ border-color:var(--line-strong); transform:translateY(-2px); }
+  .card .file{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; color:var(--text-faint); }
+  .card h3{ font-family:var(--f-serif); font-size:1.08rem; font-weight:600; }
+  .card p{ color:var(--text-soft); font-size:.87rem; line-height:1.6; flex:1; }
+
   /* footer */
   footer.site{ border-top:2px solid var(--line-strong); padding-block:2.4rem 1.4rem; }
   .foot-grid{
@@ -185,8 +225,42 @@
   <section class="cover">
     <p class="kicker">👥 Comunidad</p>
     <h1>Comunidad</h1>
+    <p class="lede">Todo pasa por WhatsApp: el canal para enterarte de las novedades, y el grupo para consultar y charlar con toda la comunidad.</p>
     <div class="row" style="margin-top:1.4rem;">
       <a class="btn btn--outline btn--small" href="index.html">← Volver al inicio</a>
+    </div>
+  </section>
+
+  <!-- 01. CANAL Y GRUPO DE WHATSAPP -->
+  <section class="exhibit" id="whatsapp">
+    <div class="exhibit-head">
+      <span class="exhibit-num">01.</span>
+      <h2>Canal y grupo de WhatsApp</h2>
+      <span class="tab">WhatsApp</span>
+    </div>
+    <p class="exhibit-note">
+      Dos espacios distintos: uno para seguir los avisos de Academia Indra, y otro para hablar con el
+      resto de la comunidad.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">WHATSAPP · CANAL</span>
+        <h3>Canal de Academia Indra</h3>
+        <p>Avisos y novedades directo de Academia Indra. Solo lectura, para no perderte nada.</p>
+        <div class="row">
+          <span class="badge badge--live">En vivo</span>
+          <a class="btn btn--primary btn--small" href="https://whatsapp.com/channel/0029Vb8MmAd0gcfEn1qC7d1G" target="_blank" rel="noopener">📢 Seguir el canal</a>
+        </div>
+      </article>
+      <article class="card">
+        <span class="file">WHATSAPP · GRUPO</span>
+        <h3>Grupo de consultas y charla</h3>
+        <p>Para preguntar, charlar y participar con toda la comunidad.</p>
+        <div class="row">
+          <span class="badge badge--live">En vivo</span>
+          <a class="btn btn--primary btn--small" href="https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 Entrar al grupo</a>
+        </div>
+      </article>
     </div>
   </section>
 
