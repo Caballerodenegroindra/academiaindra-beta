@@ -1,4 +1,4 @@
-<title>Dossier Indrhack</title>
+<title>Academia Indra</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -200,6 +200,8 @@
   .badge--restricted{ background:var(--danger-subtle); color:#e7a09b; border-color:transparent; }
   .badge--review{ background:var(--steel-subtle); color:var(--steel); border-color:transparent; }
   .badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+  a.badge{ text-decoration:none; transition:border-color .15s, transform .15s ease; }
+  a.badge:hover{ border-color:var(--line-strong); transform:translateY(-1px); }
 
   /* cards */
   .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
@@ -281,9 +283,9 @@
 <div class="wrap">
 
   <div class="strip">
-    <span>Academia Indrhack <b>·</b> Expediente AI-2026-ID</span>
-    <span>Nivel de acceso: <b>Público</b></span>
-    <span>Estado: <b>Propuesta — en revisión</b></span>
+    <span>Academia Indra <b>·</b> Ecosistema tecnológico</span>
+    <span>Versión: <b>Beta</b></span>
+    <span>Estado: <b>En construcción</b></span>
   </div>
 
   <header>
@@ -295,144 +297,182 @@
       </div>
     </div>
     <nav>
-      <a href="#">Formación</a>
-      <a href="#">Comunidad</a>
-      <a href="#">Laboratorios</a>
+      <a href="#formacion">Formación</a>
+      <a href="#aplicaciones">Aplicaciones</a>
+      <a href="#bots">Bots</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#comunidad">Comunidad</a>
+      <a href="#labs">Indra Labs</a>
       <a href="#">Ingresar</a>
-      <a href="#" class="btn btn--primary btn--small">Solicitar acceso</a>
+      <a href="#sumate" class="btn btn--primary btn--small">Sumate</a>
     </nav>
   </header>
 
   <section class="cover">
-    <p class="kicker">Manual de identidad — Volumen I</p>
-    <h1>Dossier visual</h1>
+    <p class="kicker">Bienvenido a Academia Indra</p>
+    <h1>Tecnología, aplicaciones y servicios en un solo lugar</h1>
     <p class="lede">
-      Este documento fija el lenguaje visual de <em>Academia Indrhack</em> antes de construir una sola
-      página nueva: cómo se ven el color, la tipografía, los botones y las tarjetas. Nada de esto
-      todavía funciona — es la base sobre la que se arma el resto, expediente por expediente.
+      Academia Indra nació como un espacio para compartir conocimiento sobre tecnología y ciberseguridad.
+      Hoy es un <em>ecosistema tecnológico</em> completo: desarrollamos aplicaciones, bots, herramientas y
+      servicios digitales para comunidades y personas — la formación sigue existiendo, pero ahora es una
+      sección dentro de un proyecto mucho más grande.
     </p>
-
-    <dl class="ledger">
-      <div class="ledger-row"><dt>Asunto</dt><dd>Rediseño del sitio — fase de identidad visual</dd></div>
-      <div class="ledger-row"><dt>Dirección</dt><dd>Estilo agencia federal: sello, marino casi negro, acento en latón</dd></div>
-      <div class="ledger-row"><dt>Basado en</dt><dd>Sello oficial de Academia Indrhack (logo provisto)</dd></div>
-      <div class="ledger-row"><dt>Alcance de hoy</dt><dd>Solo diseño — sin funciones, sin páginas reales todavía <span class="badge badge--review pill">en revisión</span></dd></div>
-    </dl>
+    <div class="row" style="margin-top:1.4rem;">
+      <a class="badge badge--live" href="#formacion">🎓 Formación</a>
+      <a class="badge badge--live" href="#aplicaciones">📱 Aplicaciones</a>
+      <a class="badge badge--live" href="#bots">🤖 Bots y Herramientas</a>
+      <a class="badge badge--review" href="#servicios">🌐 Servicios Digitales</a>
+      <a class="badge badge--live" href="#comunidad">👥 Comunidad</a>
+      <a class="badge badge--review" href="#labs">🧪 Indra Labs</a>
+    </div>
   </section>
 
-  <!-- EXHIBIT 01 — PALETA -->
-  <section class="exhibit">
+  <!-- I. FORMACIÓN -->
+  <section class="exhibit" id="formacion">
     <div class="exhibit-head">
       <span class="exhibit-num">I.</span>
-      <h2>Paleta</h2>
-      <span class="tab">Color</span>
+      <h2>🎓 Formación</h2>
+      <span class="tab">Educación</span>
     </div>
     <p class="exhibit-note">
-      Marino casi negro de fondo, como el sello. Un único acento cálido —latón, no dorado brillante—
-      para lo importante. El acero del logo queda para lo secundario. Verde y rojo apagados hacen de
-      sello de "aprobado" y "restringido", nunca de decoración.
+      Cursos, tutoriales, guías y laboratorios prácticos de ciberseguridad y programación. La puerta de
+      entrada original de Academia Indra, ahora una sección dentro de un proyecto mucho más grande.
     </p>
-    <div class="swatches">
-      <div class="swatch"><div class="chip" style="background:#05080d"></div><b>Tinta</b><code>#05080D</code><small>Fondo de página</small></div>
-      <div class="swatch"><div class="chip" style="background:#0e1522"></div><b>Panel</b><code>#0E1522</code><small>Tarjetas, encabezado, cuadros</small></div>
-      <div class="swatch"><div class="chip" style="background:#16202f"></div><b>Panel alto</b><code>#16202F</code><small>Hover, zonas realzadas</small></div>
-      <div class="swatch"><div class="chip" style="background:#b08d4f"></div><b>Latón</b><code>#B08D4F</code><small>Acento único: acción, sello, foco</small></div>
-      <div class="swatch"><div class="chip" style="background:#7e97b8"></div><b>Acero</b><code>#7E97B8</code><small>Enlaces, borde secundario</small></div>
-      <div class="swatch"><div class="chip" style="background:#eaeef4"></div><b>Hueso</b><code>#EAEEF4</code><small>Texto principal</small></div>
-      <div class="swatch"><div class="chip" style="background:#5c9c6d"></div><b>Verde sello</b><code>#5C9C6D</code><small>Aprobado, activo</small></div>
-      <div class="swatch"><div class="chip" style="background:#b24b44"></div><b>Rojo sello</b><code>#B24B44</code><small>Restringido, error</small></div>
-    </div>
-  </section>
-
-  <!-- EXHIBIT 02 — TIPOGRAFÍA -->
-  <section class="exhibit">
-    <div class="exhibit-head">
-      <span class="exhibit-num">II.</span>
-      <h2>Tipografía</h2>
-      <span class="tab">Type</span>
-    </div>
-    <p class="exhibit-note">
-      Cuatro roles, cada uno con un trabajo: Cinzel solo para el titular grande (el grabado del sello),
-      Source Serif 4 para subtítulos con voz de informe, Public Sans para todo el texto de lectura
-      —es la misma familia que usan los sitios oficiales de EE. UU.— y JetBrains Mono para
-      expedientes, etiquetas y datos.
-    </p>
-    <div class="ledger" style="padding-inline:1.2rem;">
-      <div class="type-row">
-        <div class="role">Display<span>Cinzel 700</span></div>
-        <div class="t-display">ACADEMIA INDRHACK</div>
-      </div>
-      <div class="type-row">
-        <div class="role">Serif<span>Source Serif 4</span></div>
-        <div class="t-serif">El conocimiento es base</div>
-      </div>
-      <div class="type-row">
-        <div class="role">Cuerpo<span>Public Sans</span></div>
-        <div class="t-body">Formación en seguridad ofensiva, comunidad y laboratorios prácticos.
-        El cuerpo de texto se lee a 65 caracteres de ancho, nunca más.</div>
-      </div>
-      <div class="type-row">
-        <div class="role">Mono<span>JetBrains Mono</span></div>
-        <div class="t-mono">EXPEDIENTE AI-2026-014 · ESTADO: ACTIVO · 12:04:09</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXHIBIT 03 — BOTONES -->
-  <section class="exhibit">
-    <div class="exhibit-head">
-      <span class="exhibit-num">III.</span>
-      <h2>Botones</h2>
-      <span class="tab">Componentes</span>
-    </div>
-    <p class="exhibit-note">Un solo botón primario por pantalla. El resto, borde de acero o texto simple.</p>
-    <div class="row">
-      <button class="btn btn--primary">Solicitar acceso</button>
-      <button class="btn btn--outline">Ver programa</button>
-      <button class="btn btn--ghost">Más información</button>
-      <button class="btn btn--danger">Revocar acceso</button>
-    </div>
-  </section>
-
-  <!-- EXHIBIT 04 — INSIGNIAS -->
-  <section class="exhibit">
-    <div class="exhibit-head">
-      <span class="exhibit-num">IV.</span>
-      <h2>Insignias de estado</h2>
-      <span class="tab">Componentes</span>
-    </div>
-    <p class="exhibit-note">Como los sellos de trámite: dicen en qué quedó algo, de un vistazo.</p>
-    <div class="row">
-      <span class="badge badge--ok">Aprobado</span>
-      <span class="badge badge--live">En vivo</span>
-      <span class="badge badge--review">En revisión</span>
-      <span class="badge badge--restricted">Restringido</span>
-    </div>
-  </section>
-
-  <!-- EXHIBIT 05 — TARJETAS -->
-  <section class="exhibit">
-    <div class="exhibit-head">
-      <span class="exhibit-num">V.</span>
-      <h2>Tarjetas</h2>
-      <span class="tab">Componentes</span>
-    </div>
-    <p class="exhibit-note">Cada tarjeta es un expediente propio: número, título, resumen y un sello al pie.</p>
     <div class="cards">
       <article class="card">
-        <span class="file">EXPEDIENTE AI-01 · FORMACIÓN</span>
+        <span class="file">FORMACIÓN · CIBERSEGURIDAD</span>
         <h3>Pentesting ofensivo</h3>
         <p>Redes, aplicaciones web y OSINT desde cero, con laboratorios propios en cada módulo.</p>
         <footer><span class="badge badge--review">12 módulos</span><a href="#" class="btn btn--ghost btn--small">Ver curso →</a></footer>
       </article>
       <article class="card">
-        <span class="file">EXPEDIENTE AI-02 · ECOSISTEMA</span>
-        <h3>Indra Bot</h3>
-        <p>El asistente de la comunidad en WhatsApp: economía, juegos y soporte, 24/7.</p>
+        <span class="file">FORMACIÓN · PROGRAMACIÓN</span>
+        <h3>Desarrollo desde cero</h3>
+        <p>Rutas de aprendizaje para programar bots, aplicaciones y herramientas propias.</p>
+        <footer><span class="badge badge--ok">Abierto</span><a href="#" class="btn btn--ghost btn--small">Ver rutas →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">FORMACIÓN · RECURSOS</span>
+        <h3>Guías y recursos</h3>
+        <p>Material de consulta libre para la comunidad: apuntes, guías y ejemplos.</p>
+        <footer><span class="badge badge--ok">Abierto</span><a href="#" class="btn btn--ghost btn--small">Explorar →</a></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- II. APLICACIONES -->
+  <section class="exhibit" id="aplicaciones">
+    <div class="exhibit-head">
+      <span class="exhibit-num">II.</span>
+      <h2>📱 Aplicaciones</h2>
+      <span class="tab">Apps</span>
+    </div>
+    <p class="exhibit-note">
+      Apps desarrolladas por Academia Indra para comunidades y para usuarios individuales: herramientas
+      móviles y proyectos que ya funcionan más allá de un curso.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">APLICACIÓN · ASISTENTE</span>
+        <h3>Argyra</h3>
+        <p>Asistente de inteligencia artificial propio del ecosistema, con panel de control y rutas admin.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="#" class="btn btn--ghost btn--small">Conocer →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">APLICACIÓN · HERRAMIENTA</span>
+        <h3>Link Metadata Panel</h3>
+        <p>Panel para revisar y previsualizar metadatos de enlaces, con respaldo automático.</p>
         <footer><span class="badge badge--live">En vivo</span><a href="#" class="btn btn--ghost btn--small">Abrir →</a></footer>
       </article>
       <article class="card">
-        <span class="file">EXPEDIENTE AI-03 · LABORATORIOS</span>
+        <span class="file">APLICACIÓN · EXPERIMENTAL</span>
+        <h3>Este sitio</h3>
+        <p>La nueva cara de Academia Indra, todavía en construcción — lo estás viendo ahora mismo.</p>
+        <footer><span class="badge badge--review">Beta</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- III. BOTS Y HERRAMIENTAS -->
+  <section class="exhibit" id="bots">
+    <div class="exhibit-head">
+      <span class="exhibit-num">III.</span>
+      <h2>🤖 Bots y Herramientas</h2>
+      <span class="tab">Automatización</span>
+    </div>
+    <p class="exhibit-note">
+      Bots de WhatsApp y Telegram, automatizaciones y utilidades digitales que trabajan para la comunidad
+      las 24 horas.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">BOT · WHATSAPP</span>
+        <h3>Indra Bot</h3>
+        <p>Economía, juegos, personajes, moderación y soporte para la comunidad, en WhatsApp.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="#" class="btn btn--ghost btn--small">Sumar el bot →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">HERRAMIENTA · WEB</span>
+        <h3>Utilidades web</h3>
+        <p>Automatizaciones y herramientas de uso libre para tareas cotidianas de la comunidad.</p>
+        <footer><span class="badge badge--review">En camino</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- IV. SERVICIOS DIGITALES -->
+  <section class="exhibit" id="servicios">
+    <div class="exhibit-head">
+      <span class="exhibit-num">IV.</span>
+      <h2>🌐 Servicios Digitales</h2>
+      <span class="tab">Servicios</span>
+    </div>
+    <p class="exhibit-note">
+      VPN, internet patrocinado, streaming y otras plataformas digitales: el área más nueva del
+      ecosistema, todavía en construcción.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">SERVICIO · CONECTIVIDAD</span>
+        <h3>VPN</h3>
+        <p>Acceso privado y seguro para la comunidad.</p>
+        <footer><span class="badge badge--restricted">Próximamente</span></footer>
+      </article>
+      <article class="card">
+        <span class="file">SERVICIO · CONECTIVIDAD</span>
+        <h3>Internet patrocinado</h3>
+        <p>Planes de datos pensados para quienes forman parte de la comunidad.</p>
+        <footer><span class="badge badge--restricted">Próximamente</span></footer>
+      </article>
+      <article class="card">
+        <span class="file">SERVICIO · ENTRETENIMIENTO</span>
+        <h3>Streaming</h3>
+        <p>Plataforma de contenido propia del ecosistema.</p>
+        <footer><span class="badge badge--restricted">Próximamente</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- V. COMUNIDAD -->
+  <section class="exhibit" id="comunidad">
+    <div class="exhibit-head">
+      <span class="exhibit-num">V.</span>
+      <h2>👥 Comunidad</h2>
+      <span class="tab">Comunidad</span>
+    </div>
+    <p class="exhibit-note">
+      Grupos de WhatsApp, soporte, colaboraciones y eventos: el lugar donde se decide para dónde crece
+      el ecosistema.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">COMUNIDAD · GRUPOS</span>
+        <h3>Grupos de WhatsApp</h3>
+        <p>Espacios activos con soporte, novedades y participación directa.</p>
+        <footer><span class="badge badge--live">Activo</span><a href="#" class="btn btn--ghost btn--small">Unirme →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">COMUNIDAD · EVENTOS</span>
         <h3>Reto semanal CTF</h3>
         <p>Un desafío nuevo cada semana, con tabla de posiciones de la comunidad.</p>
         <footer><span class="badge badge--ok">Abierto</span><a href="#" class="btn btn--ghost btn--small">Entrar →</a></footer>
@@ -440,71 +480,91 @@
     </div>
   </section>
 
-  <!-- EXHIBIT 06 — FORMULARIO -->
-  <section class="exhibit">
+  <!-- VI. INDRA LABS -->
+  <section class="exhibit" id="labs">
     <div class="exhibit-head">
       <span class="exhibit-num">VI.</span>
-      <h2>Campo de formulario</h2>
-      <span class="tab">Componentes</span>
+      <h2>🧪 Indra Labs</h2>
+      <span class="tab">I+D</span>
     </div>
-    <p class="exhibit-note">Etiquetas en mayúscula, foco en latón. Ejemplo: solicitud de acceso a la comunidad.</p>
+    <p class="exhibit-note">
+      Proyectos nuevos, ideas en desarrollo, versiones beta e investigación: todo lo que todavía se está
+      probando antes de pasar al resto del ecosistema.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">LAB · IDENTIDAD</span>
+        <h3>Nueva identidad visual</h3>
+        <p>El rediseño completo del ecosistema — lo que estás viendo ahora en beta.academiaindra.com.</p>
+        <footer><span class="badge badge--review">En construcción</span></footer>
+      </article>
+      <article class="card">
+        <span class="file">LAB · INVESTIGACIÓN</span>
+        <h3>Ideas en desarrollo</h3>
+        <p>Proyectos experimentales que todavía no tienen fecha de salida.</p>
+        <footer><span class="badge badge--restricted">Confidencial</span></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- VISIÓN Y MISIÓN -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">VII.</span>
+      <h2>Visión y misión</h2>
+      <span class="tab">Rumbo</span>
+    </div>
+    <dl class="ledger">
+      <div class="ledger-row"><dt>Visión</dt><dd>Construir un ecosistema tecnológico accesible para cualquier persona, donde pueda aprender, utilizar herramientas, acceder a servicios digitales y formar parte de una comunidad activa.</dd></div>
+      <div class="ledger-row"><dt>Misión</dt><dd>Crear soluciones tecnológicas útiles para personas y comunidades, impulsando el aprendizaje, la innovación y el acceso a herramientas digitales.</dd></div>
+    </dl>
+  </section>
+
+  <!-- SUMATE -->
+  <section class="exhibit" id="sumate">
+    <div class="exhibit-head">
+      <span class="exhibit-num">VIII.</span>
+      <h2>Sumate al ecosistema</h2>
+      <span class="tab">Contacto</span>
+    </div>
+    <p class="exhibit-note">Dejanos tu correo y te avisamos cuando cada área esté lista.</p>
     <form class="stack" onsubmit="return false;">
       <div class="field full">
         <label for="dg-email">Correo</label>
         <input id="dg-email" type="email" placeholder="vos@correo.com">
       </div>
-      <div class="field full">
-        <label for="dg-invite">Clave de invitación</label>
-        <input id="dg-invite" type="text" placeholder="AI-XXXX-XXXX">
-      </div>
       <div class="full">
-        <button class="btn btn--primary" type="submit">Enviar solicitud</button>
+        <button class="btn btn--primary" type="submit">Quiero sumarme</button>
       </div>
     </form>
-  </section>
-
-  <!-- APROBACIÓN -->
-  <section class="exhibit">
-    <div class="approval">
-      <div>
-        <h3>Acta de aprobación</h3>
-        <ul>
-          <li>Fondo marino casi negro, nunca blanco puro.</li>
-          <li>Un único acento cálido —latón #B08D4F—, cero dorado brillante ni pill buttons.</li>
-          <li>Cinzel solo en titulares grandes; el resto, Source Serif 4 / Public Sans / JetBrains Mono.</li>
-          <li>Radios chicos (3–5px) y bordes dobles en los marcos principales, como un sello grabado.</li>
-        </ul>
-      </div>
-      <div class="stamp">PENDIENTE DE<br>APROBACIÓN<small>Volumen I · Identidad</small></div>
-    </div>
   </section>
 
   <footer class="site">
     <div class="foot-grid">
       <div class="word">
         <b>ACADEMIA INDRHACK</b>
-        <p>Formación en seguridad ofensiva y comunidad técnica. El conocimiento es base.</p>
+        <p>Tecnología, aplicaciones y servicios para personas y comunidades. El conocimiento es base.</p>
       </div>
       <div>
-        <div class="foot-col">Programa</div>
+        <div class="foot-col">Ecosistema</div>
         <div class="foot-links">
-          <a href="#">Formación</a>
-          <a href="#">Laboratorios</a>
-          <a href="#">Comunidad</a>
+          <a href="#formacion">Formación</a>
+          <a href="#aplicaciones">Aplicaciones</a>
+          <a href="#bots">Bots y Herramientas</a>
         </div>
       </div>
       <div>
-        <div class="foot-col">Acceso</div>
+        <div class="foot-col">Más</div>
         <div class="foot-links">
-          <a href="#">Ingresar</a>
-          <a href="#">Solicitar invitación</a>
-          <a href="#">Soporte</a>
+          <a href="#servicios">Servicios Digitales</a>
+          <a href="#comunidad">Comunidad</a>
+          <a href="#labs">Indra Labs</a>
         </div>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Academia Indrhack</span>
-      <span>Documento de identidad visual · Volumen I</span>
+      <span>Versión Beta</span>
     </div>
   </footer>
 
