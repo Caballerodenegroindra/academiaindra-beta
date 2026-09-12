@@ -1,4 +1,4 @@
-<title>Comunidad — Academia Indra</title>
+<title>Formación — Academia Indra</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -127,6 +127,7 @@
     max-width:62ch; color:var(--text-soft); font-size:1.05rem; line-height:1.75;
     font-family:var(--f-serif);
   }
+  .cover .lede strong{ color:var(--text); }
 
   /* ---------- exhibits ---------- */
   .exhibit{ padding-block: clamp(2.2rem,5vw,3rem); border-top:1px solid var(--line); }
@@ -153,8 +154,12 @@
     font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem;
     border-radius:var(--r-sm); border:1px solid var(--line-strong); color:var(--text-soft);
   }
+  .badge--ok{ background:var(--ok-subtle); color:var(--ok); border-color:transparent; }
   .badge--live{ background:var(--brass-subtle); color:var(--brass-hi); border-color:transparent; }
+  .badge--review{ background:var(--steel-subtle); color:var(--steel); border-color:transparent; }
   .badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+  a.badge{ text-decoration:none; transition:border-color .15s, transform .15s ease; }
+  a.badge:hover{ border-color:var(--line-strong); transform:translateY(-1px); }
 
   /* cards */
   .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
@@ -167,6 +172,8 @@
   .card .file{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; color:var(--text-faint); }
   .card h3{ font-family:var(--f-serif); font-size:1.08rem; font-weight:600; }
   .card p{ color:var(--text-soft); font-size:.87rem; line-height:1.6; flex:1; }
+  .card footer{ display:flex; justify-content:space-between; align-items:center; padding-top:.5rem;
+    border-top:1px solid var(--line); }
 
   /* footer */
   footer.site{ border-top:2px solid var(--line-strong); padding-block:2.4rem 1.4rem; }
@@ -212,54 +219,144 @@
       </div>
     </div>
     <nav>
-      <a href="formacion.html">Formación</a>
+      <a href="formacion.html" class="current">Formación</a>
       <a href="aplicaciones.html">Aplicaciones</a>
       <a href="bots-y-herramientas.html">Bots</a>
       <a href="servicios-digitales.html">Servicios</a>
-      <a href="comunidad.html" class="current">Comunidad</a>
+      <a href="comunidad.html">Comunidad</a>
       <a href="index.html#labs">Indra Labs</a>
       <a href="index.html#sumate" class="btn btn--primary btn--small">Sumate</a>
     </nav>
   </header>
 
   <section class="cover">
-    <p class="kicker">👥 Comunidad</p>
-    <h1>Comunidad</h1>
-    <p class="lede">Todo pasa por WhatsApp: el canal para enterarte de las novedades, y el grupo para consultar y charlar con toda la comunidad.</p>
+    <p class="kicker">🎓 Formación</p>
+    <h1>Formación</h1>
+    <p class="lede">
+      Todo lo relacionado con aprender: cursos, rutas ordenadas, tutoriales, guías, ciberseguridad,
+      programación y recursos educativos. De cero a avanzado, a tu ritmo y <strong>gratis</strong>. La
+      puerta de entrada original de Academia Indra, hoy una de las áreas del ecosistema.
+    </p>
     <div class="row" style="margin-top:1.4rem;">
       <a class="btn btn--outline btn--small" href="index.html">← Volver al inicio</a>
     </div>
   </section>
 
-  <!-- 01. CANAL Y GRUPO DE WHATSAPP -->
-  <section class="exhibit" id="whatsapp">
+  <!-- 01. POR DÓNDE ENTRAR -->
+  <section class="exhibit" id="por-donde-entrar">
     <div class="exhibit-head">
       <span class="exhibit-num">01.</span>
-      <h2>Canal y grupo de WhatsApp</h2>
-      <span class="tab">WhatsApp</span>
+      <h2>Por dónde entrar</h2>
+      <span class="tab">Educación</span>
     </div>
     <p class="exhibit-note">
-      Dos espacios distintos: uno para seguir los avisos de Academia Indra, y otro para hablar con el
-      resto de la comunidad.
+      Cada recurso tiene su propio lugar. Si arrancás de cero, empezá por las rutas.
     </p>
     <div class="cards">
       <article class="card">
-        <span class="file">WHATSAPP · CANAL</span>
-        <h3>Canal de Academia Indra</h3>
-        <p>Avisos y novedades directo de Academia Indra. Solo lectura, para no perderte nada.</p>
-        <div class="row">
-          <span class="badge badge--live">En vivo</span>
-          <a class="btn btn--primary btn--small" href="https://whatsapp.com/channel/0029Vb8MmAd0gcfEn1qC7d1G" target="_blank" rel="noopener">📢 Seguir el canal</a>
-        </div>
+        <span class="file">FORMACIÓN · RUTAS</span>
+        <h3>🧭 Rutas de aprendizaje</h3>
+        <p>Nueve rutas ordenadas, de Fundamentos a temas avanzados. El camino recomendado para no perderte.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/rutas.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver rutas →</a></footer>
       </article>
       <article class="card">
-        <span class="file">WHATSAPP · GRUPO</span>
-        <h3>Grupo de consultas y charla</h3>
-        <p>Para preguntar, charlar y participar con toda la comunidad.</p>
-        <div class="row">
-          <span class="badge badge--live">En vivo</span>
-          <a class="btn btn--primary btn--small" href="https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 Entrar al grupo</a>
-        </div>
+        <span class="file">FORMACIÓN · CATÁLOGO</span>
+        <h3>📚 Catálogo de clases</h3>
+        <p>Todas las clases publicadas, con video y material descargable. Buscá por tema, nivel o categoría.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/cursos.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver catálogo →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">FORMACIÓN · RETOS</span>
+        <h3>🧩 Retos y CTF</h3>
+        <p>Desafíos cortos para poner en práctica lo de las rutas. Uno nuevo por semana, sumás puntos.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/retos.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver retos →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">FORMACIÓN · LABORATORIOS</span>
+        <h3>🧪 Laboratorios</h3>
+        <p>Guías prácticas de principio a fin: montás el entorno, seguís los pasos y terminás con algo funcionando.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/laboratorios.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver laboratorios →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">FORMACIÓN · ASISTENTE</span>
+        <h3>🤝 Asistente de IA</h3>
+        <p>Tu tutor 24/7. Conoce el catálogo real y te arma el orden de las primeras clases según tu nivel.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/ia-asistente.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Abrir asistente →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">FORMACIÓN · AYUDA</span>
+        <h3>❓ Cómo funciona</h3>
+        <p>Qué se puede mirar sin cuenta, cómo se aprueba el registro y cómo se estudia acá.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="https://academiaindra.com/ayuda.html" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver la guía →</a></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- 02. EL TEMARIO -->
+  <section class="exhibit" id="temario">
+    <div class="exhibit-head">
+      <span class="exhibit-num">02.</span>
+      <h2>Rutas de aprendizaje</h2>
+      <span class="tab">Temario</span>
+    </div>
+    <p class="exhibit-note">
+      Nueve rutas, de lo más básico a lo avanzado. No hace falta seguirlas en orden — pero si arrancás de
+      cero, empezá por Fundamentos.
+    </p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">RUTA · T0</span>
+        <h3>Fundamentos</h3>
+        <p>Internet, redes, sistemas, línea de comandos, máquinas virtuales y seguridad de tu propia cuenta.</p>
+        <footer><span class="badge badge--ok">Básico</span><a href="https://academiaindra.com/rutas.html?ruta=T0" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T1</span>
+        <h3>Termux &amp; Linux de bolsillo</h3>
+        <p>Convertir el celular en un laboratorio: paquetes, scripts y práctica sin depender de una PC.</p>
+        <footer><span class="badge badge--ok">Básico</span><a href="https://academiaindra.com/rutas.html?ruta=T1" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T2</span>
+        <h3>OSINT e investigación</h3>
+        <p>Huella digital, búsqueda y verificación de información, y cómo proteger tu propia identidad.</p>
+        <footer><span class="badge badge--ok">Básico → Int.</span><a href="https://academiaindra.com/rutas.html?ruta=T2" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T3</span>
+        <h3>Hacking web</h3>
+        <p>OWASP Top 10 en la práctica, laboratorios legales (DVWA, PortSwigger) y cómo se reporta una falla.</p>
+        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T3" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T4</span>
+        <h3>Redes y Wi-Fi</h3>
+        <p>Captura y lectura de tráfico, seguridad de redes domésticas y dispositivos conectados.</p>
+        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T4" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T5</span>
+        <h3>Privacidad y anti-abuso</h3>
+        <p>Cifrado, mensajería, defensa contra estafas y phishing, y seguridad de comunidades de WhatsApp.</p>
+        <footer><span class="badge badge--ok">Básico → Int.</span><a href="https://academiaindra.com/rutas.html?ruta=T5" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T6</span>
+        <h3>Defensa / Blue team</h3>
+        <p>Endurecer sistemas, detectar, responder a incidentes e higiene de contraseñas y accesos.</p>
+        <footer><span class="badge badge--live">Int. → Avanzado</span><a href="https://academiaindra.com/rutas.html?ruta=T6" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T7</span>
+        <h3>Construcción de herramientas</h3>
+        <p>Bots de WhatsApp con Baileys, automatización y cómo publicar tu propio proyecto.</p>
+        <footer><span class="badge badge--review">Intermedio</span><a href="https://academiaindra.com/rutas.html?ruta=T7" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">RUTA · T8</span>
+        <h3>Carrera y ética</h3>
+        <p>Marco legal, divulgación responsable, cómo seguir y qué certificaciones externas apuntar.</p>
+        <footer><span class="badge badge--ok">Todos</span><a href="https://academiaindra.com/rutas.html?ruta=T8" target="_blank" rel="noopener" class="btn btn--ghost btn--small">Ver ruta →</a></footer>
       </article>
     </div>
   </section>
