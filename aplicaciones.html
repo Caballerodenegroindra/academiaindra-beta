@@ -1,0 +1,371 @@
+<title>Aplicaciones — Academia Indra</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  :root{
+    color-scheme: dark;
+    --ink:        #05080d;
+    --panel:      #0e1522;
+    --panel-2:    #16202f;
+    --inset:      #0a0f18;
+    --line:       rgba(199,210,224,.16);
+    --line-strong:rgba(199,210,224,.32);
+
+    --text:       #eaeef4;
+    --text-soft:  #a7b2c4;
+    --text-faint: #66738a;
+
+    --brass:      #b08d4f;
+    --brass-hi:   #cdab6c;
+    --brass-ink:  #14100a;
+    --brass-subtle: rgba(176,141,79,.14);
+
+    --steel:      #7e97b8;
+    --steel-subtle: rgba(126,151,184,.14);
+
+    --ok:         #5c9c6d;
+    --ok-subtle:  rgba(92,156,109,.16);
+    --danger:     #b24b44;
+    --danger-subtle: rgba(178,75,68,.16);
+
+    --r-sm: 3px;
+    --r: 5px;
+    --max: 1080px;
+    --gutter: clamp(1.1rem, 4vw, 2.5rem);
+
+    --f-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+    --f-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --f-body:    'Public Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --f-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background:var(--ink); color:var(--text);
+    font-family:var(--f-body); font-size:16px; line-height:1.6;
+    padding-inline: var(--gutter);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(199,210,224,.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  h1,h2,h3,h4{ margin:0; text-wrap:balance; font-weight:600; color:var(--text); }
+  p{ margin:0; }
+  a{ color:var(--steel); }
+  ::selection{ background:var(--brass-subtle); color:var(--text); }
+
+  .wrap{ max-width:var(--max); margin-inline:auto; }
+
+  /* ---------- classification strip ---------- */
+  .strip{
+    display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; justify-content:space-between;
+    padding-block:.5rem; border-bottom:1px solid var(--line);
+    font-family:var(--f-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .strip b{ color:var(--brass); font-weight:600; }
+
+  /* ---------- header ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+    padding-block:1.3rem; border-bottom:2px solid var(--line-strong);
+    flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:.9rem; }
+  .brand img{
+    width:50px; height:50px; border-radius:50%; display:block;
+    box-shadow:0 0 0 1px var(--line-strong), 0 0 0 4px var(--ink), 0 0 0 5px var(--line);
+  }
+  .brand .word{ display:flex; flex-direction:column; gap:.15rem; }
+  .brand .word b{
+    font-family:var(--f-display); font-size:1.05rem; letter-spacing:.09em;
+    font-weight:600; color:var(--text); line-height:1;
+  }
+  .brand .word span{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
+    color:var(--text-faint); font-style:italic;
+  }
+  nav{ display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+  nav a{
+    color:var(--text-soft); text-decoration:none; font-size:.88rem; font-weight:500;
+    letter-spacing:.02em;
+  }
+  nav a:hover{ color:var(--text); }
+  nav a.current{ color:var(--brass-hi); }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    font-family:var(--f-body); font-weight:600; font-size:.86rem; letter-spacing:.01em;
+    padding:.62rem 1.15rem; border-radius:var(--r-sm); cursor:pointer;
+    border:1px solid var(--line-strong); background:transparent; color:var(--text);
+    transition:transform .12s ease, border-color .15s, background .15s, color .15s;
+    text-decoration:none;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--brass-subtle), 0 0 0 1px var(--brass); }
+  .btn--primary{ background:var(--brass); border-color:var(--brass); color:var(--brass-ink); }
+  .btn--primary:hover{ background:var(--brass-hi); border-color:var(--brass-hi); }
+  .btn--outline{ border-color:var(--steel); color:var(--steel); }
+  .btn--outline:hover{ background:var(--steel-subtle); }
+  .btn--ghost{ border-color:transparent; color:var(--text-soft); padding-inline:.4rem; }
+  .btn--ghost:hover{ color:var(--text); }
+  .btn--danger{ background:var(--danger-subtle); border-color:transparent; color:#e7a09b; }
+  .btn--small{ padding:.42rem .8rem; font-size:.78rem; }
+
+  /* ---------- cover sheet (hero) ---------- */
+  .cover{ padding-block: clamp(2.2rem,6vw,3.4rem) clamp(2rem,5vw,3rem); }
+  .kicker{
+    font-family:var(--f-mono); font-size:11.5px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:.6rem;
+  }
+  .kicker::before{ content:''; width:22px; height:1px; background:var(--brass); display:inline-block; }
+  .cover h1{
+    font-family:var(--f-display); font-size:clamp(2rem,5.4vw,3.1rem); letter-spacing:.01em;
+    margin-block:.6rem .9rem; font-weight:700;
+  }
+  .cover .lede{
+    max-width:62ch; color:var(--text-soft); font-size:1.05rem; line-height:1.75;
+    font-family:var(--f-serif);
+  }
+  .cover .lede em{ color:var(--text); font-style:normal; border-bottom:1px dotted var(--line-strong); }
+
+  .ledger{
+    margin-top:2rem; border:1px solid var(--line); border-radius:var(--r);
+    background:var(--panel); overflow:hidden;
+  }
+  .ledger-row{
+    display:grid; grid-template-columns: 200px 1fr; gap:1rem;
+    padding:.7rem 1.1rem; border-bottom:1px solid var(--line);
+    font-size:.88rem;
+  }
+  .ledger-row:last-child{ border-bottom:none; }
+  .ledger-row dt{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--text-faint); margin:0; align-self:center;
+  }
+  .ledger-row dd{ margin:0; color:var(--text); }
+  .ledger-row .pill{ margin-left:.5rem; }
+
+  /* ---------- exhibits ---------- */
+  .exhibit{ padding-block: clamp(2.2rem,5vw,3rem); border-top:1px solid var(--line); }
+  .exhibit-head{
+    display:flex; align-items:baseline; gap:.9rem; margin-bottom:1.6rem; flex-wrap:wrap;
+  }
+  .exhibit-num{
+    font-family:var(--f-display); font-size:1.5rem; color:var(--brass); font-weight:700;
+  }
+  .exhibit-head h2{
+    font-family:var(--f-serif); font-size:clamp(1.25rem,2.6vw,1.55rem); font-weight:600;
+  }
+  .exhibit-head .tab{
+    margin-left:auto; font-family:var(--f-mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--text-faint); border:1px solid var(--line);
+    border-radius:999px; padding:.25rem .7rem;
+  }
+  .exhibit-note{ color:var(--text-soft); max-width:62ch; margin-bottom:1.4rem; font-size:.94rem; }
+
+  /* buttons/badges rows */
+  .row{ display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+  .badge{
+    display:inline-flex; align-items:center; gap:.35rem; font-family:var(--f-mono); font-size:.72rem;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem;
+    border-radius:var(--r-sm); border:1px solid var(--line-strong); color:var(--text-soft);
+  }
+  .badge--ok{ background:var(--ok-subtle); color:var(--ok); border-color:transparent; }
+  .badge--live{ background:var(--brass-subtle); color:var(--brass-hi); border-color:transparent; }
+  .badge--restricted{ background:var(--danger-subtle); color:#e7a09b; border-color:transparent; }
+  .badge--review{ background:var(--steel-subtle); color:var(--steel); border-color:transparent; }
+  .badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+  a.badge{ text-decoration:none; transition:border-color .15s, transform .15s ease; }
+  a.badge:hover{ border-color:var(--line-strong); transform:translateY(-1px); }
+
+  /* cards */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.3rem; display:flex; flex-direction:column; gap:.8rem;
+    transition:border-color .16s, transform .16s ease;
+  }
+  .card:hover{ border-color:var(--line-strong); transform:translateY(-2px); }
+  .card .file{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; color:var(--text-faint); }
+  .card h3{ font-family:var(--f-serif); font-size:1.08rem; font-weight:600; }
+  .card p{ color:var(--text-soft); font-size:.87rem; line-height:1.6; flex:1; }
+  .card footer{ display:flex; justify-content:space-between; align-items:center; padding-top:.5rem;
+    border-top:1px solid var(--line); }
+
+  /* footer */
+  footer.site{ border-top:2px solid var(--line-strong); padding-block:2.4rem 1.4rem; }
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2rem; padding-bottom:1.8rem;
+  }
+  .foot-grid .word b{ font-family:var(--f-display); letter-spacing:.08em; font-size:1rem; }
+  .foot-grid p{ color:var(--text-faint); font-size:.82rem; margin-top:.6rem; max-width:32ch; line-height:1.6; }
+  .foot-col{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:.8rem; }
+  .foot-col ~ a, .foot-links a{
+    display:block; color:var(--text-soft); text-decoration:none; font-size:.88rem;
+    padding-block:.32rem; font-family:var(--f-body);
+  }
+  .foot-links a:hover{ color:var(--text); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:.6rem;
+    padding-top:1.4rem; border-top:1px solid var(--line);
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+
+  @media (max-width:640px){
+    .ledger-row{ grid-template-columns:1fr; gap:.2rem; }
+    .foot-grid{ grid-template-columns:1fr; }
+    nav{ gap:1rem; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="strip">
+    <span>Academia Indra <b>·</b> Ecosistema tecnológico</span>
+    <span>Versión: <b>Beta</b></span>
+    <span>Estado: <b>En construcción</b></span>
+  </div>
+
+  <header>
+    <div class="brand">
+      <img src="assets/logo-original.png" alt="Sello de Academia Indrhack">
+      <div class="word">
+        <b>ACADEMIA INDRHACK</b>
+        <span>El conocimiento es base</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html#formacion">Formación</a>
+      <a href="aplicaciones.html" class="current">Aplicaciones</a>
+      <a href="index.html#bots">Bots</a>
+      <a href="servicios-digitales.html">Servicios</a>
+      <a href="index.html#comunidad">Comunidad</a>
+      <a href="index.html#labs">Indra Labs</a>
+      <a href="index.html#sumate" class="btn btn--primary btn--small">Sumate</a>
+    </nav>
+  </header>
+
+  <section class="cover">
+    <p class="kicker">📱 Aplicaciones</p>
+    <h1>Apps que ya funcionan, hechas por Academia Indra</h1>
+    <p class="lede">
+      Además de bots y cursos, desarrollamos aplicaciones propias: asistentes, paneles y herramientas
+      móviles pensadas tanto para comunidades como para usuarios individuales. Esto es todo lo que hay
+      hoy en pie, y lo que se viene.
+    </p>
+    <div class="row" style="margin-top:1.4rem;">
+      <a class="btn btn--outline btn--small" href="index.html">← Volver al inicio</a>
+    </div>
+  </section>
+
+  <!-- 01. ARGYRA -->
+  <section class="exhibit" id="argyra">
+    <div class="exhibit-head">
+      <span class="exhibit-num">01.</span>
+      <h2>Argyra</h2>
+      <span class="tab">Asistente IA</span>
+    </div>
+    <p class="exhibit-note">
+      Argyra es el asistente de inteligencia artificial propio del ecosistema. No es un bot de WhatsApp:
+      corre como aplicación independiente, con su propio panel de control y rutas de administración para
+      manejar el resto de los proyectos de Academia Indra.
+    </p>
+    <dl class="ledger">
+      <div class="ledger-row"><dt>Qué hace</dt><dd>Conversa y ejecuta acciones de control sobre otros proyectos del ecosistema, a través de un proxy propio.</dd></div>
+      <div class="ledger-row"><dt>Para quién</dt><dd>Hoy, uso interno de administración de Academia Indra. En el futuro, planeado para abrirse a la comunidad.</dd></div>
+      <div class="ledger-row"><dt>Estado</dt><dd>Corriendo en servidor propio <span class="badge badge--live pill">En vivo</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- 02. LINK METADATA PANEL -->
+  <section class="exhibit" id="panel">
+    <div class="exhibit-head">
+      <span class="exhibit-num">02.</span>
+      <h2>Link Metadata Panel</h2>
+      <span class="tab">Herramienta web</span>
+    </div>
+    <p class="exhibit-note">
+      Panel web para revisar y previsualizar los metadatos de cualquier enlace (título, descripción,
+      imagen) antes de compartirlo, con historial y respaldo automático de su propia base de datos.
+    </p>
+    <dl class="ledger">
+      <div class="ledger-row"><dt>Qué hace</dt><dd>Genera y muestra la vista previa de un enlace, tal como la mostrarían WhatsApp o redes sociales.</dd></div>
+      <div class="ledger-row"><dt>Para quién</dt><dd>Cualquier persona que necesite revisar cómo se ve un link antes de mandarlo o publicarlo.</dd></div>
+      <div class="ledger-row"><dt>Acceso</dt><dd><a href="https://links.academiaindra.com" target="_blank" rel="noopener">links.academiaindra.com</a> <span class="badge badge--live pill">En vivo</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- 03. ESTE SITIO -->
+  <section class="exhibit" id="beta">
+    <div class="exhibit-head">
+      <span class="exhibit-num">03.</span>
+      <h2>Este sitio</h2>
+      <span class="tab">Experimental</span>
+    </div>
+    <p class="exhibit-note">
+      beta.academiaindra.com es la nueva cara del ecosistema, la estás usando ahora mismo. También es en
+      sí misma una aplicación en construcción activa, no solo una página de presentación.
+    </p>
+    <dl class="ledger">
+      <div class="ledger-row"><dt>Qué es</dt><dd>El rediseño completo de Academia Indra, con todas sus áreas mapeadas.</dd></div>
+      <div class="ledger-row"><dt>Estado</dt><dd>Beta, en construcción activa <span class="badge badge--review pill">Beta</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- 04. LO QUE VIENE -->
+  <section class="exhibit" id="proximas">
+    <div class="exhibit-head">
+      <span class="exhibit-num">04.</span>
+      <h2>Lo que viene</h2>
+      <span class="tab">Roadmap</span>
+    </div>
+    <p class="exhibit-note">Herramientas móviles y proyectos experimentales que todavía están en diseño.</p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">APP · MÓVIL</span>
+        <h3>App móvil de la comunidad</h3>
+        <p>Versión para el celular de buena parte de lo que hoy se usa por WhatsApp.</p>
+        <footer><span class="badge badge--restricted">En diseño</span></footer>
+      </article>
+      <article class="card">
+        <span class="file">APP · EXPERIMENTAL</span>
+        <h3>Proyectos de Indra Labs</h3>
+        <p>Cuando un experimento de Indra Labs madura, pasa a formar parte de esta sección.</p>
+        <footer><a href="index.html#labs" class="btn btn--ghost btn--small">Ver Indra Labs →</a></footer>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="foot-grid">
+      <div class="word">
+        <b>ACADEMIA INDRHACK</b>
+        <p>Tecnología, aplicaciones y servicios para personas y comunidades. El conocimiento es base.</p>
+      </div>
+      <div>
+        <div class="foot-col">Ecosistema</div>
+        <div class="foot-links">
+          <a href="index.html#formacion">Formación</a>
+          <a href="aplicaciones.html">Aplicaciones</a>
+          <a href="index.html#bots">Bots y Herramientas</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col">Más</div>
+        <div class="foot-links">
+          <a href="servicios-digitales.html">Servicios Digitales</a>
+          <a href="index.html#comunidad">Comunidad</a>
+          <a href="index.html#labs">Indra Labs</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Academia Indrhack</span>
+      <span>Versión Beta</span>
+    </div>
+  </footer>
+
+</div>
