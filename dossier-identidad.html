@@ -1,0 +1,511 @@
+<title>Dossier Indrhack</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  :root{
+    color-scheme: dark;
+    --ink:        #05080d;
+    --panel:      #0e1522;
+    --panel-2:    #16202f;
+    --inset:      #0a0f18;
+    --line:       rgba(199,210,224,.16);
+    --line-strong:rgba(199,210,224,.32);
+
+    --text:       #eaeef4;
+    --text-soft:  #a7b2c4;
+    --text-faint: #66738a;
+
+    --brass:      #b08d4f;
+    --brass-hi:   #cdab6c;
+    --brass-ink:  #14100a;
+    --brass-subtle: rgba(176,141,79,.14);
+
+    --steel:      #7e97b8;
+    --steel-subtle: rgba(126,151,184,.14);
+
+    --ok:         #5c9c6d;
+    --ok-subtle:  rgba(92,156,109,.16);
+    --danger:     #b24b44;
+    --danger-subtle: rgba(178,75,68,.16);
+
+    --r-sm: 3px;
+    --r: 5px;
+    --max: 1080px;
+    --gutter: clamp(1.1rem, 4vw, 2.5rem);
+
+    --f-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+    --f-serif:   'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --f-body:    'Public Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --f-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    margin:0; background:var(--ink); color:var(--text);
+    font-family:var(--f-body); font-size:16px; line-height:1.6;
+    padding-inline: var(--gutter);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(199,210,224,.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  h1,h2,h3,h4{ margin:0; text-wrap:balance; font-weight:600; color:var(--text); }
+  p{ margin:0; }
+  a{ color:var(--steel); }
+  ::selection{ background:var(--brass-subtle); color:var(--text); }
+
+  .wrap{ max-width:var(--max); margin-inline:auto; }
+
+  /* ---------- classification strip ---------- */
+  .strip{
+    display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; justify-content:space-between;
+    padding-block:.5rem; border-bottom:1px solid var(--line);
+    font-family:var(--f-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .strip b{ color:var(--brass); font-weight:600; }
+
+  /* ---------- header ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+    padding-block:1.3rem; border-bottom:2px solid var(--line-strong);
+    flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:.9rem; }
+  .brand img{
+    width:50px; height:50px; border-radius:50%; display:block;
+    box-shadow:0 0 0 1px var(--line-strong), 0 0 0 4px var(--ink), 0 0 0 5px var(--line);
+  }
+  .brand .word{ display:flex; flex-direction:column; gap:.15rem; }
+  .brand .word b{
+    font-family:var(--f-display); font-size:1.05rem; letter-spacing:.09em;
+    font-weight:600; color:var(--text); line-height:1;
+  }
+  .brand .word span{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.05em;
+    color:var(--text-faint); font-style:italic;
+  }
+  nav{ display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+  nav a{
+    color:var(--text-soft); text-decoration:none; font-size:.88rem; font-weight:500;
+    letter-spacing:.02em;
+  }
+  nav a:hover{ color:var(--text); }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    font-family:var(--f-body); font-weight:600; font-size:.86rem; letter-spacing:.01em;
+    padding:.62rem 1.15rem; border-radius:var(--r-sm); cursor:pointer;
+    border:1px solid var(--line-strong); background:transparent; color:var(--text);
+    transition:transform .12s ease, border-color .15s, background .15s, color .15s;
+    text-decoration:none;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--brass-subtle), 0 0 0 1px var(--brass); }
+  .btn--primary{ background:var(--brass); border-color:var(--brass); color:var(--brass-ink); }
+  .btn--primary:hover{ background:var(--brass-hi); border-color:var(--brass-hi); }
+  .btn--outline{ border-color:var(--steel); color:var(--steel); }
+  .btn--outline:hover{ background:var(--steel-subtle); }
+  .btn--ghost{ border-color:transparent; color:var(--text-soft); padding-inline:.4rem; }
+  .btn--ghost:hover{ color:var(--text); }
+  .btn--danger{ background:var(--danger-subtle); border-color:transparent; color:#e7a09b; }
+  .btn--small{ padding:.42rem .8rem; font-size:.78rem; }
+
+  /* ---------- cover sheet (hero) ---------- */
+  .cover{ padding-block: clamp(2.2rem,6vw,3.4rem) clamp(2rem,5vw,3rem); }
+  .kicker{
+    font-family:var(--f-mono); font-size:11.5px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--brass); display:flex; align-items:center; gap:.6rem;
+  }
+  .kicker::before{ content:''; width:22px; height:1px; background:var(--brass); display:inline-block; }
+  .cover h1{
+    font-family:var(--f-display); font-size:clamp(2rem,5.4vw,3.1rem); letter-spacing:.01em;
+    margin-block:.6rem .9rem; font-weight:700;
+  }
+  .cover .lede{
+    max-width:62ch; color:var(--text-soft); font-size:1.05rem; line-height:1.75;
+    font-family:var(--f-serif);
+  }
+  .cover .lede em{ color:var(--text); font-style:normal; border-bottom:1px dotted var(--line-strong); }
+
+  .ledger{
+    margin-top:2rem; border:1px solid var(--line); border-radius:var(--r);
+    background:var(--panel); overflow:hidden;
+  }
+  .ledger-row{
+    display:grid; grid-template-columns: 200px 1fr; gap:1rem;
+    padding:.7rem 1.1rem; border-bottom:1px solid var(--line);
+    font-size:.88rem;
+  }
+  .ledger-row:last-child{ border-bottom:none; }
+  .ledger-row dt{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--text-faint); margin:0; align-self:center;
+  }
+  .ledger-row dd{ margin:0; color:var(--text); }
+  .ledger-row .pill{ margin-left:.5rem; }
+
+  /* ---------- exhibits ---------- */
+  .exhibit{ padding-block: clamp(2.2rem,5vw,3rem); border-top:1px solid var(--line); }
+  .exhibit-head{
+    display:flex; align-items:baseline; gap:.9rem; margin-bottom:1.6rem; flex-wrap:wrap;
+  }
+  .exhibit-num{
+    font-family:var(--f-display); font-size:1.5rem; color:var(--brass); font-weight:700;
+  }
+  .exhibit-head h2{
+    font-family:var(--f-serif); font-size:clamp(1.25rem,2.6vw,1.55rem); font-weight:600;
+  }
+  .exhibit-head .tab{
+    margin-left:auto; font-family:var(--f-mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--text-faint); border:1px solid var(--line);
+    border-radius:999px; padding:.25rem .7rem;
+  }
+  .exhibit-note{ color:var(--text-soft); max-width:62ch; margin-bottom:1.4rem; font-size:.94rem; }
+
+  /* palette */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; }
+  .swatch{ background:var(--panel); padding:1.1rem 1rem; display:flex; flex-direction:column; gap:.7rem; }
+  .swatch .chip{ width:100%; height:52px; border-radius:var(--r-sm); border:1px solid var(--line-strong); }
+  .swatch b{ font-size:.86rem; font-weight:600; }
+  .swatch code{
+    font-family:var(--f-mono); font-size:11px; color:var(--text-faint);
+  }
+  .swatch small{ color:var(--text-soft); font-size:.78rem; line-height:1.5; }
+
+  /* type specimen */
+  .type-row{ display:grid; grid-template-columns: 150px 1fr; gap:1.5rem; padding-block:1.4rem;
+    border-bottom:1px solid var(--line); align-items:baseline; }
+  .type-row:last-child{ border-bottom:none; }
+  .type-row .role{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .type-row .role span{ display:block; color:var(--brass); font-size:10px; margin-top:.3rem; }
+  .t-display{ font-family:var(--f-display); font-size:clamp(1.5rem,3.4vw,2.1rem); letter-spacing:.03em; }
+  .t-serif{ font-family:var(--f-serif); font-size:1.4rem; font-weight:600; }
+  .t-body{ font-family:var(--f-body); font-size:1rem; color:var(--text-soft); max-width:52ch; line-height:1.7; }
+  .t-mono{ font-family:var(--f-mono); font-size:.86rem; color:var(--text-soft); letter-spacing:.02em; }
+
+  /* buttons/badges rows */
+  .row{ display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; }
+  .badge{
+    display:inline-flex; align-items:center; gap:.35rem; font-family:var(--f-mono); font-size:.72rem;
+    font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .6rem;
+    border-radius:var(--r-sm); border:1px solid var(--line-strong); color:var(--text-soft);
+  }
+  .badge--ok{ background:var(--ok-subtle); color:var(--ok); border-color:transparent; }
+  .badge--live{ background:var(--brass-subtle); color:var(--brass-hi); border-color:transparent; }
+  .badge--restricted{ background:var(--danger-subtle); color:#e7a09b; border-color:transparent; }
+  .badge--review{ background:var(--steel-subtle); color:var(--steel); border-color:transparent; }
+  .badge::before{ content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+
+  /* cards */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.3rem; display:flex; flex-direction:column; gap:.8rem;
+    transition:border-color .16s, transform .16s ease;
+  }
+  .card:hover{ border-color:var(--line-strong); transform:translateY(-2px); }
+  .card .file{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; color:var(--text-faint); }
+  .card h3{ font-family:var(--f-serif); font-size:1.08rem; font-weight:600; }
+  .card p{ color:var(--text-soft); font-size:.87rem; line-height:1.6; flex:1; }
+  .card footer{ display:flex; justify-content:space-between; align-items:center; padding-top:.5rem;
+    border-top:1px solid var(--line); }
+
+  /* form */
+  .field{ display:flex; flex-direction:column; gap:.35rem; }
+  .field label{
+    font-family:var(--f-mono); font-size:10.5px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--text-faint);
+  }
+  .field input{
+    background:var(--inset); border:1px solid var(--line-strong); border-radius:var(--r-sm);
+    padding:.65rem .8rem; color:var(--text); font-family:var(--f-body); font-size:.92rem;
+  }
+  .field input:focus{ outline:none; border-color:var(--brass); box-shadow:0 0 0 3px var(--brass-subtle); }
+  .field input::placeholder{ color:var(--text-faint); }
+  form.stack{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:480px; }
+  form.stack .full{ grid-column:1/-1; }
+
+  /* approval block */
+  .approval{
+    display:grid; grid-template-columns: 1fr auto; gap:2rem; align-items:center;
+    background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--r);
+    padding: 1.6rem clamp(1.2rem,3vw,2rem);
+  }
+  .approval ul{ margin:.8rem 0 0; padding-left:1.1rem; color:var(--text-soft); font-size:.87rem;
+    line-height:1.85; }
+  .approval h3{ font-family:var(--f-serif); font-size:1.15rem; }
+  .stamp{
+    font-family:var(--f-display); font-size:.9rem; font-weight:700; letter-spacing:.08em;
+    color:var(--brass); border:2px dashed var(--brass); border-radius:var(--r-sm);
+    padding:.9rem 1.2rem; transform:rotate(-4deg); text-align:center; white-space:nowrap;
+    background:var(--brass-subtle);
+  }
+  .stamp small{ display:block; font-family:var(--f-mono); font-weight:500; letter-spacing:.04em;
+    color:var(--text-faint); margin-top:.3rem; text-transform:none; }
+
+  /* footer */
+  footer.site{ border-top:2px solid var(--line-strong); padding-block:2.4rem 1.4rem; }
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2rem; padding-bottom:1.8rem;
+  }
+  .foot-grid .word b{ font-family:var(--f-display); letter-spacing:.08em; font-size:1rem; }
+  .foot-grid p{ color:var(--text-faint); font-size:.82rem; margin-top:.6rem; max-width:32ch; line-height:1.6; }
+  .foot-col{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint); margin-bottom:.8rem; }
+  .foot-col ~ a, .foot-links a{
+    display:block; color:var(--text-soft); text-decoration:none; font-size:.88rem;
+    padding-block:.32rem; font-family:var(--f-body);
+  }
+  .foot-links a:hover{ color:var(--text); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:.6rem;
+    padding-top:1.4rem; border-top:1px solid var(--line);
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+
+  @media (max-width:640px){
+    .ledger-row{ grid-template-columns:1fr; gap:.2rem; }
+    .type-row{ grid-template-columns:1fr; gap:.4rem; }
+    .approval{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; }
+    nav{ gap:1rem; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="strip">
+    <span>Academia Indrhack <b>·</b> Expediente AI-2026-ID</span>
+    <span>Nivel de acceso: <b>Público</b></span>
+    <span>Estado: <b>Propuesta — en revisión</b></span>
+  </div>
+
+  <header>
+    <div class="brand">
+      <img src="assets/logo-original.png" alt="Sello de Academia Indrhack">
+      <div class="word">
+        <b>ACADEMIA INDRHACK</b>
+        <span>El conocimiento es base</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#">Formación</a>
+      <a href="#">Comunidad</a>
+      <a href="#">Laboratorios</a>
+      <a href="#">Ingresar</a>
+      <a href="#" class="btn btn--primary btn--small">Solicitar acceso</a>
+    </nav>
+  </header>
+
+  <section class="cover">
+    <p class="kicker">Manual de identidad — Volumen I</p>
+    <h1>Dossier visual</h1>
+    <p class="lede">
+      Este documento fija el lenguaje visual de <em>Academia Indrhack</em> antes de construir una sola
+      página nueva: cómo se ven el color, la tipografía, los botones y las tarjetas. Nada de esto
+      todavía funciona — es la base sobre la que se arma el resto, expediente por expediente.
+    </p>
+
+    <dl class="ledger">
+      <div class="ledger-row"><dt>Asunto</dt><dd>Rediseño del sitio — fase de identidad visual</dd></div>
+      <div class="ledger-row"><dt>Dirección</dt><dd>Estilo agencia federal: sello, marino casi negro, acento en latón</dd></div>
+      <div class="ledger-row"><dt>Basado en</dt><dd>Sello oficial de Academia Indrhack (logo provisto)</dd></div>
+      <div class="ledger-row"><dt>Alcance de hoy</dt><dd>Solo diseño — sin funciones, sin páginas reales todavía <span class="badge badge--review pill">en revisión</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- EXHIBIT 01 — PALETA -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">I.</span>
+      <h2>Paleta</h2>
+      <span class="tab">Color</span>
+    </div>
+    <p class="exhibit-note">
+      Marino casi negro de fondo, como el sello. Un único acento cálido —latón, no dorado brillante—
+      para lo importante. El acero del logo queda para lo secundario. Verde y rojo apagados hacen de
+      sello de "aprobado" y "restringido", nunca de decoración.
+    </p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background:#05080d"></div><b>Tinta</b><code>#05080D</code><small>Fondo de página</small></div>
+      <div class="swatch"><div class="chip" style="background:#0e1522"></div><b>Panel</b><code>#0E1522</code><small>Tarjetas, encabezado, cuadros</small></div>
+      <div class="swatch"><div class="chip" style="background:#16202f"></div><b>Panel alto</b><code>#16202F</code><small>Hover, zonas realzadas</small></div>
+      <div class="swatch"><div class="chip" style="background:#b08d4f"></div><b>Latón</b><code>#B08D4F</code><small>Acento único: acción, sello, foco</small></div>
+      <div class="swatch"><div class="chip" style="background:#7e97b8"></div><b>Acero</b><code>#7E97B8</code><small>Enlaces, borde secundario</small></div>
+      <div class="swatch"><div class="chip" style="background:#eaeef4"></div><b>Hueso</b><code>#EAEEF4</code><small>Texto principal</small></div>
+      <div class="swatch"><div class="chip" style="background:#5c9c6d"></div><b>Verde sello</b><code>#5C9C6D</code><small>Aprobado, activo</small></div>
+      <div class="swatch"><div class="chip" style="background:#b24b44"></div><b>Rojo sello</b><code>#B24B44</code><small>Restringido, error</small></div>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 02 — TIPOGRAFÍA -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">II.</span>
+      <h2>Tipografía</h2>
+      <span class="tab">Type</span>
+    </div>
+    <p class="exhibit-note">
+      Cuatro roles, cada uno con un trabajo: Cinzel solo para el titular grande (el grabado del sello),
+      Source Serif 4 para subtítulos con voz de informe, Public Sans para todo el texto de lectura
+      —es la misma familia que usan los sitios oficiales de EE. UU.— y JetBrains Mono para
+      expedientes, etiquetas y datos.
+    </p>
+    <div class="ledger" style="padding-inline:1.2rem;">
+      <div class="type-row">
+        <div class="role">Display<span>Cinzel 700</span></div>
+        <div class="t-display">ACADEMIA INDRHACK</div>
+      </div>
+      <div class="type-row">
+        <div class="role">Serif<span>Source Serif 4</span></div>
+        <div class="t-serif">El conocimiento es base</div>
+      </div>
+      <div class="type-row">
+        <div class="role">Cuerpo<span>Public Sans</span></div>
+        <div class="t-body">Formación en seguridad ofensiva, comunidad y laboratorios prácticos.
+        El cuerpo de texto se lee a 65 caracteres de ancho, nunca más.</div>
+      </div>
+      <div class="type-row">
+        <div class="role">Mono<span>JetBrains Mono</span></div>
+        <div class="t-mono">EXPEDIENTE AI-2026-014 · ESTADO: ACTIVO · 12:04:09</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 03 — BOTONES -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">III.</span>
+      <h2>Botones</h2>
+      <span class="tab">Componentes</span>
+    </div>
+    <p class="exhibit-note">Un solo botón primario por pantalla. El resto, borde de acero o texto simple.</p>
+    <div class="row">
+      <button class="btn btn--primary">Solicitar acceso</button>
+      <button class="btn btn--outline">Ver programa</button>
+      <button class="btn btn--ghost">Más información</button>
+      <button class="btn btn--danger">Revocar acceso</button>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 04 — INSIGNIAS -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">IV.</span>
+      <h2>Insignias de estado</h2>
+      <span class="tab">Componentes</span>
+    </div>
+    <p class="exhibit-note">Como los sellos de trámite: dicen en qué quedó algo, de un vistazo.</p>
+    <div class="row">
+      <span class="badge badge--ok">Aprobado</span>
+      <span class="badge badge--live">En vivo</span>
+      <span class="badge badge--review">En revisión</span>
+      <span class="badge badge--restricted">Restringido</span>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 05 — TARJETAS -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">V.</span>
+      <h2>Tarjetas</h2>
+      <span class="tab">Componentes</span>
+    </div>
+    <p class="exhibit-note">Cada tarjeta es un expediente propio: número, título, resumen y un sello al pie.</p>
+    <div class="cards">
+      <article class="card">
+        <span class="file">EXPEDIENTE AI-01 · FORMACIÓN</span>
+        <h3>Pentesting ofensivo</h3>
+        <p>Redes, aplicaciones web y OSINT desde cero, con laboratorios propios en cada módulo.</p>
+        <footer><span class="badge badge--review">12 módulos</span><a href="#" class="btn btn--ghost btn--small">Ver curso →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">EXPEDIENTE AI-02 · ECOSISTEMA</span>
+        <h3>Indra Bot</h3>
+        <p>El asistente de la comunidad en WhatsApp: economía, juegos y soporte, 24/7.</p>
+        <footer><span class="badge badge--live">En vivo</span><a href="#" class="btn btn--ghost btn--small">Abrir →</a></footer>
+      </article>
+      <article class="card">
+        <span class="file">EXPEDIENTE AI-03 · LABORATORIOS</span>
+        <h3>Reto semanal CTF</h3>
+        <p>Un desafío nuevo cada semana, con tabla de posiciones de la comunidad.</p>
+        <footer><span class="badge badge--ok">Abierto</span><a href="#" class="btn btn--ghost btn--small">Entrar →</a></footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXHIBIT 06 — FORMULARIO -->
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <span class="exhibit-num">VI.</span>
+      <h2>Campo de formulario</h2>
+      <span class="tab">Componentes</span>
+    </div>
+    <p class="exhibit-note">Etiquetas en mayúscula, foco en latón. Ejemplo: solicitud de acceso a la comunidad.</p>
+    <form class="stack" onsubmit="return false;">
+      <div class="field full">
+        <label for="dg-email">Correo</label>
+        <input id="dg-email" type="email" placeholder="vos@correo.com">
+      </div>
+      <div class="field full">
+        <label for="dg-invite">Clave de invitación</label>
+        <input id="dg-invite" type="text" placeholder="AI-XXXX-XXXX">
+      </div>
+      <div class="full">
+        <button class="btn btn--primary" type="submit">Enviar solicitud</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- APROBACIÓN -->
+  <section class="exhibit">
+    <div class="approval">
+      <div>
+        <h3>Acta de aprobación</h3>
+        <ul>
+          <li>Fondo marino casi negro, nunca blanco puro.</li>
+          <li>Un único acento cálido —latón #B08D4F—, cero dorado brillante ni pill buttons.</li>
+          <li>Cinzel solo en titulares grandes; el resto, Source Serif 4 / Public Sans / JetBrains Mono.</li>
+          <li>Radios chicos (3–5px) y bordes dobles en los marcos principales, como un sello grabado.</li>
+        </ul>
+      </div>
+      <div class="stamp">PENDIENTE DE<br>APROBACIÓN<small>Volumen I · Identidad</small></div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="foot-grid">
+      <div class="word">
+        <b>ACADEMIA INDRHACK</b>
+        <p>Formación en seguridad ofensiva y comunidad técnica. El conocimiento es base.</p>
+      </div>
+      <div>
+        <div class="foot-col">Programa</div>
+        <div class="foot-links">
+          <a href="#">Formación</a>
+          <a href="#">Laboratorios</a>
+          <a href="#">Comunidad</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col">Acceso</div>
+        <div class="foot-links">
+          <a href="#">Ingresar</a>
+          <a href="#">Solicitar invitación</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Academia Indrhack</span>
+      <span>Documento de identidad visual · Volumen I</span>
+    </div>
+  </footer>
+
+</div>
