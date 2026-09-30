@@ -101,10 +101,22 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);backgroun
 .hero-badge b{display:block;font-family:var(--fd);font-size:1.15rem}
 .hero-badge.b1{left:-6%;top:16%}
 .hero-badge.b2{right:-6%;bottom:14%}
+.pilares-float{position:absolute;z-index:2;left:-7%;top:12%;display:grid;gap:.5rem}
+.pilares-float span{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;
+  background:rgba(11,9,19,.82);backdrop-filter:blur(8px);border:1px solid var(--line-2);
+  border-radius:999px;padding:.4rem .75rem;box-shadow:0 12px 30px -14px #000;white-space:nowrap;
+  animation:floaty 5s ease-in-out infinite}
+.pilares-float span:nth-child(2){animation-delay:.6s;margin-left:14px}
+.pilares-float span:nth-child(3){animation-delay:1.2s;margin-left:4px}
+.pilares-float span:nth-child(4){animation-delay:1.8s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){.pilares-float span{animation:none}}
 @media(max-width:860px){
   .hero-grid{grid-template-columns:1fr}
   .hero-art{max-width:400px;margin:0 auto;order:-1}
   .hero-badge.b1{left:0}.hero-badge.b2{right:0}
+  .pilares-float{position:static;margin-top:1rem;grid-template-columns:1fr 1fr;justify-items:center}
+  .pilares-float span{margin-left:0!important;animation:none}
 }
 
 /* secciones */
@@ -234,8 +246,13 @@ footer.site{border-top:1px solid var(--line);margin-top:3rem;padding:3rem 0 2rem
     </div>
     <div class="hero-art">
       <span class="halo"></span>
-      <img src="assets/indra-hero.jpg" alt="Indra, la cara de la comunidad">
-      <div class="hero-badge b1">🎓 Aprendé<b>tecnología</b></div>
+      <img src="assets/indra-hero.jpg" alt="Indra, la cara de Academia Indra">
+      <div class="pilares-float" aria-hidden="true">
+        <span>🎓 Formación</span>
+        <span>🔒 Ciberseguridad</span>
+        <span>🤖 Indra Bot</span>
+        <span>🌐 Servicios</span>
+      </div>
       <div class="hero-badge b2">💜 Comunidad<b>activa 24/7</b></div>
     </div>
   </div>
