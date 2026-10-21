@@ -1,442 +1,297 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Academia Indra — Comunidad, bots y tecnología</title>
-<meta name="description" content="Academia Indra: la comunidad donde aprendés tecnología y ciberseguridad, sumás Indra Bot gratis a tus grupos de WhatsApp y accedés a apps, herramientas y servicios digitales.">
-<link rel="canonical" href="https://academiaindra.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia Indra — Estudio de desarrollo: bots, apps y plataformas</title>
+<meta name="description" content="Academia Indra es un estudio de desarrollo independiente. Construimos Indra Bot, la app de Indra y plataformas web que usan miles de personas todos los días. Bots de WhatsApp, apps Android y automatización a medida.">
+<meta property="og:title" content="Academia Indra — bots, apps y plataformas">
+<meta property="og:description" content="Software en producción que usan miles de personas por día: Indra Bot, la app de Indra y servicios a medida.">
+<meta property="og:image" content="https://academiaindra.com/assets/indra-2026.jpg">
+<meta name="theme-color" content="#0b0a12">
 <link rel="icon" type="image/png" href="assets/logo-original.png">
 <link rel="apple-touch-icon" href="assets/logo-original.png">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Academia Indra">
-<meta property="og:title" content="Academia Indra — Comunidad, bots y tecnología">
-<meta property="og:description" content="Aprendé tecnología, sumá Indra Bot gratis a tus grupos de WhatsApp y unite a la comunidad.">
-<meta property="og:image" content="https://academiaindra.com/assets/indra-hero.jpg">
-<meta property="og:url" content="https://academiaindra.com/">
-<meta property="og:locale" content="es_AR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Academia Indra — Comunidad, bots y tecnología">
-<meta name="twitter:description" content="Aprendé tecnología, sumá Indra Bot gratis a tus grupos y unite a la comunidad.">
-<meta name="twitter:image" content="https://academiaindra.com/assets/indra-hero.jpg">
-<meta name="theme-color" content="#0c0a14">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Academia Indra","alternateName":"Indra","description":"Comunidad de tecnología: formación, Indra Bot para WhatsApp, aplicaciones, herramientas y servicios digitales.","url":"https://academiaindra.com/","logo":"https://academiaindra.com/assets/logo-original.png","sameAs":["https://whatsapp.com/channel/0029Vb8MmAd0gcfEn1qC7d1G","https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1"]}
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0913; --bg2:#120e1f; --card:rgba(255,255,255,.045); --card-2:rgba(255,255,255,.07);
-  --line:rgba(180,160,230,.16); --line-2:rgba(180,160,230,.30);
-  --text:#f6f3ff; --muted:#b9b0d4; --faint:#8a80a8;
-  --violet:#a855f7; --violet-2:#7c3aed; --rose:#f43f5e; --rose-2:#ec4899; --gold:#f6c445;
-  --grad:linear-gradient(135deg,#a855f7,#ec4899 55%,#f43f5e);
-  --grad-soft:linear-gradient(135deg,rgba(168,85,247,.18),rgba(236,72,153,.14));
-  --r:18px; --r-sm:12px; --max:1120px; --gut:clamp(1rem,4vw,2rem);
-  --f:'Inter',system-ui,sans-serif; --fd:'Sora',system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::before{content:'';position:fixed;inset:0;z-index:-1;background:
-  radial-gradient(60vw 60vw at 80% -10%,rgba(168,85,247,.22),transparent 60%),
-  radial-gradient(55vw 55vw at 0% 10%,rgba(244,63,94,.16),transparent 55%),
-  radial-gradient(50vw 50vw at 50% 110%,rgba(124,58,237,.18),transparent 60%);}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{margin:0;font-family:var(--fd);font-weight:700;line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
-p{margin:0}
-.wrap{width:min(var(--max),100% - var(--gut)*2);margin-inline:auto}
-.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.eyebrow{font-family:var(--fd);font-weight:700;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet)}
+  :root {
+    --bg: #0b0a12; --bg2: #12101c; --card: #171425; --line: #2a2540; --txt: #ece9f5; --sub: #a59fbd; --mut: #77708f;
+    --a1: #8b5cf6; --a2: #ec4899; --a3: #22d3ee; --ok: #34d399;
+    --grad: linear-gradient(120deg, #a78bfa 0%, #f472b6 55%, #fb923c 100%);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--txt); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 22px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-/* botones */
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-weight:600;font-size:.95rem;
-  padding:.85rem 1.4rem;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s,border-color .2s;white-space:nowrap}
-.btn:hover{transform:translateY(-2px)}
-.btn--primary{background:var(--grad);color:#fff;box-shadow:0 10px 30px -8px rgba(236,72,153,.6)}
-.btn--primary:hover{box-shadow:0 16px 40px -10px rgba(236,72,153,.75)}
-.btn--glass{background:var(--card-2);border-color:var(--line-2);color:var(--text);backdrop-filter:blur(8px)}
-.btn--glass:hover{background:rgba(255,255,255,.12)}
-.btn--ghost{color:var(--muted)}
-.btn--ghost:hover{color:var(--text)}
-.btn--sm{padding:.6rem 1rem;font-size:.85rem}
+  /* fondo */
+  .bg-grid { position: fixed; inset: 0; z-index: -1; background:
+      radial-gradient(800px 500px at 85% -10%, rgba(139,92,246,.20), transparent 60%),
+      radial-gradient(700px 500px at -10% 20%, rgba(236,72,153,.12), transparent 60%),
+      linear-gradient(transparent 0 0);
+  }
+  .bg-grid::after { content: ""; position: absolute; inset: 0; opacity: .35;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 75%); }
 
-/* header */
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(11,9,19,.72);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;gap:1rem;padding:.8rem 0}
-.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--fd);font-weight:800;letter-spacing:-.01em}
-.brand img{width:42px;height:42px;border-radius:50%;border:2px solid var(--line-2)}
-.brand small{display:block;font-family:var(--f);font-weight:500;font-size:.68rem;color:var(--faint);letter-spacing:.04em}
-.nav-links{display:flex;gap:.3rem;margin-left:auto;align-items:center}
-.nav-links a{padding:.5rem .85rem;border-radius:999px;font-weight:600;font-size:.9rem;color:var(--muted);transition:color .15s,background .15s}
-.nav-links a:hover{color:var(--text);background:var(--card-2)}
-.nav-cta{margin-left:.4rem}
-.burger{display:none;margin-left:auto;background:var(--card-2);border:1px solid var(--line);color:var(--text);width:44px;height:44px;border-radius:12px;font-size:1.3rem;cursor:pointer}
-@media(max-width:860px){
-  .nav-links{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:1rem var(--gut);gap:.2rem;transform:translateY(-120%);transition:transform .25s;margin:0}
-  .nav-links.open{transform:translateY(0)}
-  .nav-links a{padding:.9rem 1rem;border-radius:12px}
-  .nav-cta{margin:.5rem 0 0}
-  .burger{display:block}
-}
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); background: rgba(11,10,18,.72); border-bottom: 1px solid rgba(255,255,255,.06); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; }
+  .logo img { width: 30px; height: 30px; border-radius: 8px; }
+  .links { display: flex; gap: 26px; font-size: 14.5px; color: var(--sub); }
+  .links a:hover { color: var(--txt); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 12px; font-weight: 600; font-size: 14.5px; transition: transform .15s, background .15s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-p { background: var(--txt); color: #0b0a12; }
+  .btn-g { border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .btn-g:hover { background: rgba(255,255,255,.07); }
+  .menu-btn { display: none; background: none; border: 0; color: var(--txt); font-size: 22px; }
 
-/* hero */
-.hero{padding:clamp(2.5rem,7vw,5rem) 0 clamp(2rem,5vw,3.5rem)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800}
-.hero .lede{color:var(--muted);font-size:clamp(1.05rem,2vw,1.25rem);margin-top:1.1rem;max-width:52ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
-.hero-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
-.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600;color:var(--muted);
-  background:var(--card);border:1px solid var(--line);padding:.4rem .8rem;border-radius:999px}
-.chip b{color:var(--text)}
-.hero-art{position:relative}
-.hero-art .halo{position:absolute;inset:-8% -8% -8% -8%;background:var(--grad);filter:blur(60px);opacity:.5;border-radius:50%;z-index:0}
-.hero-art img{position:relative;z-index:1;width:100%;border-radius:28px;border:1px solid var(--line-2);box-shadow:0 30px 80px -30px rgba(168,85,247,.6)}
-.hero-badge{position:absolute;z-index:2;background:rgba(11,9,19,.82);backdrop-filter:blur(8px);border:1px solid var(--line-2);
-  border-radius:14px;padding:.6rem .9rem;font-size:.82rem;font-weight:600;box-shadow:0 12px 30px -12px #000}
-.hero-badge b{display:block;font-family:var(--fd);font-size:1.15rem}
-.hero-badge.b1{left:-6%;top:16%}
-.hero-badge.b2{right:-6%;bottom:14%}
-.pilares-float{position:absolute;z-index:2;left:-7%;top:12%;display:grid;gap:.5rem}
-.pilares-float span{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:600;
-  background:rgba(11,9,19,.82);backdrop-filter:blur(8px);border:1px solid var(--line-2);
-  border-radius:999px;padding:.4rem .75rem;box-shadow:0 12px 30px -14px #000;white-space:nowrap;
-  animation:floaty 5s ease-in-out infinite}
-.pilares-float span:nth-child(2){animation-delay:.6s;margin-left:14px}
-.pilares-float span:nth-child(3){animation-delay:1.2s;margin-left:4px}
-.pilares-float span:nth-child(4){animation-delay:1.8s}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@media(prefers-reduced-motion:reduce){.pilares-float span{animation:none}}
-@media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-art{max-width:400px;margin:0 auto;order:-1}
-  .hero-badge.b1{left:0}.hero-badge.b2{right:0}
-  .pilares-float{position:static;margin-top:1rem;grid-template-columns:1fr 1fr;justify-items:center}
-  .pilares-float span{margin-left:0!important;animation:none}
-}
+  /* hero */
+  .hero { padding: 92px 0 60px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--sub); background: rgba(255,255,255,.03); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 12px var(--ok); animation: pulso 2s infinite; }
+  @keyframes pulso { 50% { opacity: .35; } }
+  h1 { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.06; letter-spacing: -.035em; margin: 20px 0 18px; font-weight: 800; }
+  .lead { font-size: 18.5px; color: var(--sub); max-width: 580px; margin: 0 0 30px; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-img { position: relative; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4/5; background: var(--card); }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .hero-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11,10,18,.9)); }
+  .terminal { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2; background: rgba(12,10,20,.82); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-size: 12.5px; color: #c9c2e3; backdrop-filter: blur(8px); }
+  .terminal b { color: var(--ok); font-weight: 600; }
 
-/* secciones */
-section.blk{padding:clamp(2.5rem,6vw,4.5rem) 0}
-.sec-head{max-width:40ch;margin-bottom:2rem}
-.sec-head.center{margin-inline:auto;text-align:center}
-.sec-head h2{font-size:clamp(1.7rem,4vw,2.6rem)}
-.sec-head p{color:var(--muted);margin-top:.7rem;font-size:1.05rem}
+  /* números */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin: 10px 0 90px; }
+  .stat { background: var(--bg2); padding: 26px 24px; }
+  .stat .n { font-size: 34px; font-weight: 800; letter-spacing: -.03em; }
+  .stat .l { color: var(--mut); font-size: 13.5px; margin-top: 2px; }
 
-/* grilla de áreas */
-.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.area{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;
-  transition:transform .18s,border-color .18s,background .18s;overflow:hidden}
-.area:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--card-2)}
-.area .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:var(--grad-soft);border:1px solid var(--line);margin-bottom:1rem}
-.area h3{font-size:1.2rem}
-.area p{color:var(--muted);font-size:.92rem;margin-top:.5rem;min-height:3.6em}
-.area .go{display:inline-flex;align-items:center;gap:.35rem;margin-top:1rem;font-weight:600;font-size:.9rem;color:var(--violet)}
-.area:hover .go{color:var(--rose-2)}
-.area .tag{position:absolute;top:1.1rem;right:1.1rem;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-  color:#0b0913;background:var(--gold);padding:.2rem .5rem;border-radius:6px}
+  section { padding: 0 0 100px; }
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--a1); font-weight: 700; }
+  h2 { font-size: clamp(28px, 3.6vw, 40px); letter-spacing: -.03em; line-height: 1.15; margin: 10px 0 14px; }
+  .sec-sub { color: var(--sub); max-width: 640px; margin: 0 0 40px; font-size: 17px; }
 
-/* bot feature */
-.feature{background:linear-gradient(160deg,rgba(168,85,247,.14),rgba(244,63,94,.10));border:1px solid var(--line-2);
-  border-radius:26px;padding:clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;overflow:hidden}
-.feature h2{font-size:clamp(1.8rem,4vw,2.6rem)}
-.feature p{color:var(--muted);margin-top:.9rem;font-size:1.05rem}
-.feat-stats{display:flex;flex-wrap:wrap;gap:1.4rem;margin:1.5rem 0}
-.feat-stats div{min-width:80px}
-.feat-stats b{display:block;font-family:var(--fd);font-size:1.7rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.feat-stats span{font-size:.82rem;color:var(--faint)}
-.feat-list{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.5rem}
-.feat-list li{display:flex;gap:.6rem;align-items:flex-start;color:var(--muted);font-size:.95rem}
-.feat-list li::before{content:'✦';color:var(--rose-2)}
-.phone{justify-self:center;width:min(280px,80%);background:#0e0b18;border:8px solid #1a1526;border-radius:34px;padding:.8rem;box-shadow:0 30px 70px -25px rgba(168,85,247,.6)}
-.phone .top{display:flex;align-items:center;gap:.5rem;padding:.3rem .3rem .7rem}
-.phone .top img{width:30px;height:30px;border-radius:50%}
-.phone .top b{font-size:.85rem}.phone .top small{display:block;color:var(--faint);font-size:.68rem}
-.msg{border-radius:12px;padding:.55rem .7rem;font-size:.82rem;margin-bottom:.4rem;max-width:85%}
-.msg.me{background:#3a2b5c;margin-left:auto;border-bottom-right-radius:3px}
-.msg.bot{background:#181226;border:1px solid var(--line);border-bottom-left-radius:3px}
-.msg.poll{background:#181226;border:1px solid var(--line)}
-.msg .opt{background:#241a3a;border-radius:7px;padding:.35rem .5rem;margin-top:.35rem;font-size:.76rem}
-@media(max-width:860px){.feature{grid-template-columns:1fr}.phone{order:-1}}
+  /* productos */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)); border: 1px solid var(--line); border-radius: 18px; padding: 26px; transition: border-color .2s, transform .2s; display: flex; flex-direction: column; }
+  .card:hover { border-color: #3d3560; transform: translateY(-2px); }
+  .card .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: rgba(139,92,246,.14); margin-bottom: 16px; }
+  .card h3 { margin: 0 0 6px; font-size: 19px; letter-spacing: -.01em; }
+  .card p { margin: 0 0 16px; color: var(--sub); font-size: 15px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tag { font-size: 12px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--sub); font-family: "JetBrains Mono", monospace; }
+  .tag.ok { color: var(--ok); border-color: rgba(52,211,153,.35); }
+  .card .more { margin-top: 18px; font-weight: 600; font-size: 14px; color: #c4b5fd; }
+  .card.big { grid-column: span 2; }
 
-/* galería */
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem}
-.gallery img{aspect-ratio:1;object-fit:cover;border-radius:16px;border:1px solid var(--line);transition:transform .2s}
-.gallery img:hover{transform:scale(1.04)}
+  /* arquitectura */
+  .arch { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .code { background: #0e0c17; border: 1px solid var(--line); border-radius: 18px; padding: 22px; font-size: 13.5px; color: #cbc4e4; overflow-x: auto; }
+  .code .c { color: #6b6489; } .code .k { color: #c4b5fd; } .code .s { color: #86efac; } .code .n { color: #f9a8d4; }
+  .feat { display: grid; gap: 14px; }
+  .feat div { display: flex; gap: 14px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.02); }
+  .feat b { display: block; margin-bottom: 2px; }
+  .feat span { color: var(--sub); font-size: 14.5px; }
 
-/* números */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.stats div{background:var(--bg2);padding:1.6rem 1rem;text-align:center}
-.stats b{display:block;font-family:var(--fd);font-size:2rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.stats span{color:var(--faint);font-size:.85rem}
+  /* servicios */
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .srv { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--bg2); }
+  .srv h4 { margin: 10px 0 6px; font-size: 16.5px; }
+  .srv p { margin: 0; color: var(--sub); font-size: 14.5px; }
 
-/* CTA comunidad */
-.join{text-align:center;background:linear-gradient(160deg,rgba(124,58,237,.2),rgba(244,63,94,.14));border:1px solid var(--line-2);border-radius:26px;padding:clamp(2rem,5vw,3.5rem)}
-.join h2{font-size:clamp(1.8rem,4vw,2.6rem)}
-.join p{color:var(--muted);margin:.8rem auto 0;max-width:46ch}
-.join .row{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:1.8rem}
+  /* cta final */
+  .final { border: 1px solid var(--line); border-radius: 24px; padding: 54px 40px; text-align: center; background:
+      radial-gradient(600px 260px at 50% 0%, rgba(139,92,246,.22), transparent 70%), var(--bg2); }
+  .final p { color: var(--sub); max-width: 560px; margin: 0 auto 26px; }
 
-/* faq */
-.faq{display:grid;gap:.7rem;max-width:760px;margin-inline:auto}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:.3rem .3rem}
-.faq summary{cursor:pointer;font-family:var(--fd);font-weight:600;padding:.9rem 1rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';color:var(--violet);font-size:1.3rem;line-height:1}
-.faq details[open] summary::after{content:'–'}
-.faq p{color:var(--muted);padding:0 1rem 1rem;font-size:.95rem}
+  footer { border-top: 1px solid rgba(255,255,255,.06); padding: 40px 0 50px; color: var(--mut); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+  footer .cols { display: flex; gap: 50px; flex-wrap: wrap; }
+  footer h5 { color: var(--txt); margin: 0 0 10px; font-size: 14px; }
+  footer a { display: block; margin: 6px 0; } footer a:hover { color: var(--txt); }
 
-/* footer */
-footer.site{border-top:1px solid var(--line);margin-top:3rem;padding:3rem 0 2rem}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
-.foot-grid .brand small{color:var(--faint)}
-.foot-grid p{color:var(--muted);font-size:.9rem;margin-top:.8rem;max-width:38ch}
-.foot-col{font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.8rem}
-.foot-links{display:grid;gap:.55rem}
-.foot-links a{color:var(--muted);font-size:.92rem}
-.foot-links a:hover{color:var(--text)}
-.foot-bottom{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line);color:var(--faint);font-size:.85rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between}
-@media(max-width:640px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid .brand{grid-column:1/-1}}
-
-/* reveal */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; padding-top: 56px; }
+    .hero-img { aspect-ratio: 16/11; }
+    .grid3, .arch { grid-template-columns: 1fr; } .card.big { grid-column: auto; }
+    .grid4 { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: #0f0d18; border-bottom: 1px solid var(--line); }
+    .links.open { display: flex; } .links a { padding: 14px 22px; border-top: 1px solid rgba(255,255,255,.05); }
+    .menu-btn { display: block; } .nav-cta { display: none; }
+  }
+  @media (max-width: 560px) { .grid4 { grid-template-columns: 1fr; } .final { padding: 40px 22px; } }
 </style>
 </head>
 <body>
+<div class="bg-grid"></div>
 
-<header class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="index.html">
-      <img src="assets/logo-original.png" alt="Academia Indra">
-      <span>Academia Indra<small>Comunidad · Bots · Tecnología</small></span>
-    </a>
-    <button class="burger" aria-label="Menú" onclick="document.getElementById('m').classList.toggle('open')">☰</button>
-    <nav class="nav-links" id="m">
-      <a href="#areas">Ecosistema</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><img src="assets/logo-original.png" alt="">Academia Indra</a>
+    <div class="links" id="links">
+      <a href="#productos">Productos</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#servicios">Servicios</a>
       <a href="formacion.html">Formación</a>
-      <a href="aplicaciones.html">Aplicaciones</a>
-      <a href="servicios-digitales.html">Servicios</a>
-      <a href="#bot">Indra Bot</a>
       <a href="comunidad.html">Comunidad</a>
-      <a class="btn btn--primary btn--sm nav-cta" href="https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 Unirme</a>
-    </nav>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn btn-p nav-cta" href="https://bot.academiaindra.com">Probar Indra Bot</a>
+    <button class="menu-btn" aria-label="Menú" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
   </div>
-</header>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
+<main class="wrap">
+  <header class="hero">
     <div>
-      <span class="eyebrow">Plataforma tecnológica · Comunidad</span>
-      <h1 style="margin-top:.6rem">Tecnología, formación y <span class="grad-text">comunidad</span>, en un solo lugar</h1>
-      <p class="lede">Academia Indra es un ecosistema completo: <b style="color:var(--text)">formación</b> en tecnología y ciberseguridad, <b style="color:var(--text)">aplicaciones</b> propias, <b style="color:var(--text)">Indra Bot</b> para tus grupos, <b style="color:var(--text)">servicios digitales</b> y una comunidad activa. Todo con el mismo equipo.</p>
-      <div class="hero-cta">
-        <a class="btn btn--primary" href="#areas">✨ Ver todo lo que hacemos</a>
-        <a class="btn btn--glass" href="https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 Entrar a la comunidad</a>
-      </div>
-      <div class="hero-chips">
-        <span class="chip">🎓 <b>Formación</b> de cero a avanzado</span>
-        <span class="chip">🤖 <b>Bot gratis</b> para WhatsApp</span>
-        <span class="chip">🌐 <b>Servicios</b> digitales</span>
+      <span class="pill"><span class="dot"></span> <span id="enLinea">34 bots en producción ahora mismo</span></span>
+      <h1>Construimos software que <span class="grad">miles de personas usan todos los días</span>.</h1>
+      <p class="lead">Academia Indra es un estudio de desarrollo independiente. Diseñamos, programamos y operamos bots de WhatsApp, apps y plataformas web — desde la idea hasta los servidores.</p>
+      <div class="ctas">
+        <a class="btn btn-p" href="#productos">Ver productos →</a>
+        <a class="btn btn-g" href="#contacto">Hablemos de tu proyecto</a>
       </div>
     </div>
-    <div class="hero-art">
-      <span class="halo"></span>
-      <img src="assets/indra-hero.jpg" alt="Indra, la cara de Academia Indra">
-      <div class="pilares-float" aria-hidden="true">
-        <span>🎓 Formación</span>
-        <span>🔒 Ciberseguridad</span>
-        <span>🤖 Indra Bot</span>
-        <span>🌐 Servicios</span>
+    <div class="hero-img">
+      <img src="assets/indra-2026.jpg" alt="Indra, la mascota de Academia Indra">
+      <div class="terminal mono">
+        <div>$ indra status</div>
+        <div><b>●</b> bots activos ........ <span id="tBots">34</span></div>
+        <div><b>●</b> comandos (24 h) ..... <span id="tCmd">28.138</span></div>
+        <div><b>●</b> mensajes (24 h) ..... <span id="tMsg">188.520</span></div>
       </div>
-      <div class="hero-badge b2">💜 Comunidad<b>activa 24/7</b></div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ÁREAS -->
-<section class="blk" id="areas">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">El ecosistema</span>
-      <h2>Todo lo que hacés en Academia Indra</h2>
-      <p>Un mismo equipo, una misma comunidad. Elegí por dónde empezar.</p>
-    </div>
-    <div class="areas">
-      <a class="area reveal" href="https://bot.academiaindra.com" target="_blank" rel="noopener">
-        <span class="tag">Gratis</span>
-        <div class="ic">🤖</div><h3>Indra Bot</h3>
-        <p>El bot de WhatsApp que ya usan cientos de grupos. Juegos, economía y moderación.</p>
-        <span class="go">Abrir el bot →</span>
+  <div class="stats">
+    <div class="stat"><div class="n" id="sPers">23.204</div><div class="l">personas usaron nuestros productos</div></div>
+    <div class="stat"><div class="n" id="sCmd">28.138</div><div class="l">comandos respondidos en 24 h</div></div>
+    <div class="stat"><div class="n" id="sCom">458</div><div class="l">funciones en Indra Bot</div></div>
+    <div class="stat"><div class="n" id="sBots">34</div><div class="l">instancias corriendo 24/7</div></div>
+  </div>
+
+  <section id="productos">
+    <div class="eyebrow">Productos</div>
+    <h2>Lo que tenemos en producción</h2>
+    <p class="sec-sub">No son demos: son productos propios que mantenemos y mejoramos todos los días, con usuarios reales en Argentina y Latinoamérica.</p>
+    <div class="grid3">
+      <a class="card big" href="https://bot.academiaindra.com">
+        <div class="ico">🤖</div>
+        <h3>Indra Bot</h3>
+        <p>Bot de WhatsApp para grupos: economía, juegos, cartas coleccionables, reinos, moderación automática e inteligencia artificial. Cada dueño conecta su número y tiene su propio bot en minutos.</p>
+        <div class="tags"><span class="tag ok">● en producción</span><span class="tag">458 comandos</span><span class="tag">multi-instancia</span><span class="tag">IA</span></div>
+        <span class="more">Conocer Indra Bot →</span>
       </a>
-      <a class="area reveal" href="formacion.html">
-        <div class="ic">🎓</div><h3>Formación</h3>
-        <p>Cursos y rutas para aprender tecnología y ciberseguridad, paso a paso.</p>
-        <span class="go">Ver cursos →</span>
+      <a class="card" href="https://bot.academiaindra.com/mundo/app">
+        <div class="ico">📱</div>
+        <h3>App Indra</h3>
+        <p>La experiencia del bot en el celular: cofre diario, cartas, rankings en vivo y la misma cuenta que en WhatsApp.</p>
+        <div class="tags"><span class="tag ok">● Android</span><span class="tag">Google Play · en revisión</span></div>
+        <span class="more">Descargar →</span>
       </a>
-      <a class="area reveal" href="aplicaciones.html">
-        <div class="ic">📱</div><h3>Aplicaciones</h3>
-        <p>Apps propias que ya usan personas y comunidades todos los días.</p>
-        <span class="go">Conocer →</span>
+      <a class="card" href="https://bot.academiaindra.com/mundo">
+        <div class="ico">🌐</div>
+        <h3>Mundo Indra</h3>
+        <p>Plataforma web con cuentas, inicio de sesión con Google, juegos en el navegador y perfiles sincronizados con el bot.</p>
+        <div class="tags"><span class="tag ok">● web</span><span class="tag">OAuth</span></div>
+        <span class="more">Entrar →</span>
       </a>
-      <a class="area reveal" href="bots-y-herramientas.html">
-        <div class="ic">🛠️</div><h3>Bots y Herramientas</h3>
-        <p>Todo lo que sabe hacer el bot y las herramientas del ecosistema.</p>
-        <span class="go">Explorar →</span>
+      <a class="card" href="https://bot.academiaindra.com">
+        <div class="ico">🧭</div>
+        <h3>Panel de bots</h3>
+        <p>Panel multiusuario donde cada persona vincula su número, prende, apaga y personaliza su propio bot sin tocar código.</p>
+        <div class="tags"><span class="tag ok">● en producción</span><span class="tag">self-service</span></div>
+        <span class="more">Abrir panel →</span>
       </a>
-      <a class="area reveal" href="servicios-digitales.html">
-        <div class="ic">🌐</div><h3>Servicios Digitales</h3>
-        <p>VPN y streaming a un precio accesible para la comunidad.</p>
-        <span class="go">Ver servicios →</span>
-      </a>
-      <a class="area reveal" href="comunidad.html">
-        <div class="ic">💜</div><h3>Comunidad</h3>
-        <p>El canal y el grupo de WhatsApp donde nos organizamos todos.</p>
-        <span class="go">Sumarme →</span>
+      <a class="card" href="servicios-digitales.html">
+        <div class="ico">🛡️</div>
+        <h3>Indra VPN</h3>
+        <p>Conexión privada con servidores propios en Brasil para navegar oculto y con buena velocidad.</p>
+        <div class="tags"><span class="tag">servicio</span><span class="tag">Argentina</span></div>
+        <span class="more">Ver detalles →</span>
       </a>
     </div>
-  </div>
-</section>
-<!-- BOT FEATURE -->
-<section class="blk" id="bot">
+  </section>
+
+  <section id="tecnologia">
+    <div class="eyebrow">Tecnología</div>
+    <h2>Cómo está hecho</h2>
+    <p class="sec-sub">Infraestructura propia, pensada para muchos usuarios a la vez y para no caerse.</p>
+    <div class="arch">
+<pre class="code mono"><span class="c">// arquitectura de Indra Bot (resumen)</span>
+<span class="k">stack</span>     = [<span class="s">"Node.js"</span>, <span class="s">"Baileys"</span>, <span class="s">"SQLite / Postgres"</span>, <span class="s">"Caddy"</span>]
+<span class="k">instancias</span> = <span class="n">34</span>   <span class="c">// un proceso por número, aislado</span>
+<span class="k">red</span>       = <span class="s">"salidas propias por instancia"</span>
+<span class="k">ia</span>        = [<span class="s">"LLM para charla"</span>, <span class="s">"visión: filtro +18"</span>]
+<span class="k">media</span>     = [<span class="s">"stickers"</span>, <span class="s">"video"</span>, <span class="s">"tarjetas HD"</span>]
+<span class="k">deploy</span>    = <span class="s">"recarga en caliente, sin cortar"</span>
+<span class="k">monitoreo</span> = <span class="s">"latencia por comando, alertas 24/7"</span></pre>
+      <div class="feat">
+        <div><span>⚡</span><p style="margin:0"><b>Rápido</b><span>Los comandos se responden en décimas de segundo; medimos la latencia de cada respuesta.</span></p></div>
+        <div><span>🧱</span><p style="margin:0"><b>Aislado</b><span>Cada bot corre por separado: si uno falla, los demás siguen andando.</span></p></div>
+        <div><span>🔄</span><p style="margin:0"><b>Siempre actualizado</b><span>Publicamos mejoras varias veces por semana sin apagar el servicio.</span></p></div>
+        <div><span>🔐</span><p style="margin:0"><b>Privado</b><span>No vendemos datos ni mostramos publicidad. <a href="https://bot.academiaindra.com/privacidad" style="text-decoration:underline">Política de privacidad</a>.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="eyebrow">Servicios</div>
+    <h2>Hacemos lo mismo para tu proyecto</h2>
+    <p class="sec-sub">Lo que construimos para nosotros, lo construimos para vos: con la experiencia de operar software real todos los días.</p>
+    <div class="grid4">
+      <div class="srv"><span style="font-size:24px">💬</span><h4>Bots de WhatsApp</h4><p>Atención, ventas, comunidades y juegos, con panel propio.</p></div>
+      <div class="srv"><span style="font-size:24px">📱</span><h4>Apps Android</h4><p>Apps publicadas en Google Play o instalables desde tu web.</p></div>
+      <div class="srv"><span style="font-size:24px">🖥️</span><h4>Webs y paneles</h4><p>Sitios, paneles de control y sistemas con cuentas de usuario.</p></div>
+      <div class="srv"><span style="font-size:24px">🧠</span><h4>Automatización e IA</h4><p>Procesos automáticos, asistentes con IA e integraciones.</p></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="final">
+      <div class="eyebrow">Contacto</div>
+      <h2>¿Tenés una idea? <span class="grad">La hacemos andar.</span></h2>
+      <p>Escribinos por el canal oficial o por correo y te respondemos con una propuesta concreta.</p>
+      <div class="ctas" style="justify-content:center">
+        <a class="btn btn-p" href="https://whatsapp.com/channel/0029Vb8vgb61noz4DGd9CM1s">Canal de WhatsApp</a>
+        <a class="btn btn-g" href="mailto:indrhack010101moderador@gmail.com">Escribir un correo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
   <div class="wrap">
-    <div class="feature reveal">
-      <div>
-        <span class="eyebrow">Uno de nuestros productos · Gratis</span>
-        <h2 style="margin-top:.5rem">Indra Bot para tu grupo de WhatsApp</h2>
-        <p>Nuestra asistente para grupos: juegos con monedas, personajes de anime para coleccionar, descargas de música y videos, stickers, economía y moderación automática. La prendés en 5 minutos, sin instalar nada.</p>
-        <div class="feat-stats">
-          <div><b>+170</b><span>comandos</span></div>
-          <div><b>Gratis</b><span>para siempre</span></div>
-          <div><b>24/7</b><span>siempre online</span></div>
-        </div>
-        <ul class="feat-list">
-          <li>Juegos, ruleta, trivia y rankings con premios</li>
-          <li>Personajes de anime: invocá, coleccioná e intercambiá</li>
-          <li>Descargas de YouTube, TikTok, Instagram y más</li>
-          <li>Moderación: antilink, filtro +18 y anti-estados</li>
-        </ul>
-        <div class="hero-cta" style="margin-top:0">
-          <a class="btn btn--primary" href="https://bot.academiaindra.com" target="_blank" rel="noopener">Crear mi bot →</a>
-          <a class="btn btn--glass" href="https://whatsapp.com/channel/0029Vb8pFQPI1rcrnxM5TA2t" target="_blank" rel="noopener">📣 Canal del bot</a>
-        </div>
-      </div>
-      <div class="phone" aria-hidden="true">
-        <div class="top"><img src="assets/logo-original.png" alt=""><div><b>Mi grupo 🌹</b><small>Indra Bot, vos y 48 más</small></div></div>
-        <div class="msg me">#menu</div>
-        <div class="msg poll"><b style="font-size:.8rem">🌹 Elegí una categoría</b>
-          <div class="opt">🎴 Personajes</div><div class="opt">🎮 Juegos</div><div class="opt">🧲 Descargas</div>
-        </div>
-        <div class="msg me">#rw</div>
-        <div class="msg bot">🎴 ¡Apareció un personaje! ✨ Legendario ★★★★★ — reclamalo con #c</div>
-      </div>
+    <div>
+      <div class="logo" style="color:var(--txt)"><img src="assets/logo-original.png" alt="">Academia Indra</div>
+      <p style="max-width:300px">Estudio de desarrollo independiente. Bots, apps y plataformas en producción.</p>
+      <p class="mono" style="font-size:12px">© 2026 Academia Indra</p>
     </div>
-  </div>
-</section>
-
-
-<!-- CONOCÉ A INDRA -->
-<section class="blk">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">La cara de la comunidad</span>
-      <h2>Conocé a Indra</h2>
-      <p>Ella es quien te acompaña en los grupos. Cambia de look todos los días en el canal del bot.</p>
-    </div>
-    <div class="gallery reveal">
-      <img src="assets/indra-1.jpg" alt="Indra" loading="lazy">
-      <img src="assets/indra-2.jpg" alt="Indra" loading="lazy">
-      <img src="assets/indra-3.jpg" alt="Indra" loading="lazy">
-      <img src="assets/indra-4.jpg" alt="Indra" loading="lazy">
-      <img src="assets/indra-5.jpg" alt="Indra" loading="lazy">
-      <img src="assets/indra-6.jpg" alt="Indra" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- NÚMEROS -->
-<section class="blk">
-  <div class="wrap reveal">
-    <div class="stats">
-      <div><b>9</b><span>rutas de formación</span></div>
-      <div><b>+170</b><span>comandos del bot</span></div>
-      <div><b>Gratis</b><span>para la comunidad</span></div>
-      <div><b>24/7</b><span>siempre activos</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- COMUNIDAD -->
-<section class="blk">
-  <div class="wrap">
-    <div class="join reveal">
-      <span class="eyebrow">Sumate cuando quieras</span>
-      <h2 style="margin-top:.5rem">Entrá a la comunidad</h2>
-      <p>Es gratis y abierto. No hace falta dejar el correo ni registrarte: entrás al grupo, seguís el canal y listo. Ahí te enterás de todo lo que sumamos.</p>
-      <div class="row">
-        <a class="btn btn--primary" href="https://chat.whatsapp.com/BnUtmvmkX0wG78UbyxhOJ1?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 Entrar al grupo</a>
-        <a class="btn btn--glass" href="https://whatsapp.com/channel/0029Vb8MmAd0gcfEn1qC7d1G" target="_blank" rel="noopener">📢 Seguir el canal</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="blk">
-  <div class="wrap">
-    <div class="sec-head center reveal"><span class="eyebrow">Dudas</span><h2>Preguntas frecuentes</h2></div>
-    <div class="faq reveal">
-      <details><summary>¿El bot es gratis de verdad?</summary><p>Sí, 100% gratis. No se cobra nada. El proyecto se mantiene con donaciones voluntarias de la comunidad.</p></details>
-      <details><summary>¿Cómo sumo el bot a mi grupo?</summary><p>Entrás a bot.academiaindra.com, creás tu cuenta, conectás un WhatsApp con un código y lo agregás a tus grupos. Escribís #menu y aparece todo. Tarda unos 5 minutos.</p></details>
-      <details><summary>¿Necesito saber de tecnología?</summary><p>Para nada. El bot funciona con menús: tocás una opción y listo. Y para aprender, la comunidad te acompaña desde cero.</p></details>
-      <details><summary>¿Qué es Academia Indra?</summary><p>Una comunidad de tecnología que empezó compartiendo conocimiento y hoy ofrece formación, el bot de WhatsApp, aplicaciones, herramientas y servicios digitales, todo bajo el mismo equipo.</p></details>
-    </div>
-  </div>
-</section>
-
-<footer class="site">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="brand"><img src="assets/logo-original.png" alt=""><span>Academia Indra<small>El conocimiento es base</small></span></div>
-        <p>Comunidad de tecnología: formación, Indra Bot para WhatsApp, aplicaciones, herramientas y servicios digitales.</p>
-      </div>
-      <div>
-        <div class="foot-col">Ecosistema</div>
-        <div class="foot-links">
-          <a href="https://bot.academiaindra.com" target="_blank" rel="noopener">🤖 Indra Bot (gratis)</a>
-          <a href="formacion.html">Formación</a>
-          <a href="aplicaciones.html">Aplicaciones</a>
-          <a href="bots-y-herramientas.html">Bots y Herramientas</a>
-        </div>
-      </div>
-      <div>
-        <div class="foot-col">Comunidad</div>
-        <div class="foot-links">
-          <a href="servicios-digitales.html">Servicios Digitales</a>
-          <a href="comunidad.html">Comunidad</a>
-          <a href="https://whatsapp.com/channel/0029Vb8MmAd0gcfEn1qC7d1G" target="_blank" rel="noopener">Canal de WhatsApp</a>
-          <a href="https://wa.me/5493834954164" target="_blank" rel="noopener">Contacto</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Academia Indra</span>
-      <span>Hecho con 💜 por la comunidad</span>
+    <div class="cols">
+      <div><h5>Productos</h5><a href="https://bot.academiaindra.com">Indra Bot</a><a href="https://bot.academiaindra.com/mundo/app">App Indra</a><a href="https://bot.academiaindra.com/mundo">Mundo Indra</a><a href="servicios-digitales.html">Indra VPN</a></div>
+      <div><h5>Academia</h5><a href="formacion.html">Formación</a><a href="aplicaciones.html">Aplicaciones</a><a href="bots-y-herramientas.html">Bots y herramientas</a><a href="comunidad.html">Comunidad</a></div>
+      <div><h5>Legal</h5><a href="https://bot.academiaindra.com/privacidad">Privacidad</a><a href="https://bot.academiaindra.com/borrar-cuenta">Borrar mi cuenta</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-  // reveal on scroll
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // cerrar menú al tocar un link
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('m').classList.remove('open')));
+  /* Números en vivo desde la plataforma (si no responde, quedan los de arriba) */
+  const fmt = (n) => Number(n).toLocaleString('es-AR');
+  fetch('https://bot.academiaindra.com/api/publico').then((r) => r.json()).then((d) => {
+    const v = d.vivo || {};
+    const set = (id, x) => { const e = document.getElementById(id); if (e && x != null) e.textContent = fmt(x); };
+    set('tBots', v.bots); set('sBots', v.bots); set('tCmd', v.comandos24); set('sCmd', v.comandos24);
+    set('tMsg', v.mensajes24); set('sPers', v.personasTotal); set('sCom', d.totalComandos);
+    if (v.bots) document.getElementById('enLinea').textContent = `${v.bots} bots en producción ahora mismo`;
+  }).catch(() => {});
 </script>
 </body>
 </html>
